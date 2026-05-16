@@ -1,0 +1,423 @@
+# Entity: cardinfo
+
+main: kit: entity: cardinfo: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "archetype"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "atk"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "attribute"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "banlist_info"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "beta_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "card_image"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "card_price"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "card_set"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "def"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "desc"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "downvote"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "format"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "frame_type"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "genesys_point"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "has_effect"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "id"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "konami_id"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "level"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "linkmarker"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "linkval"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "md_rarity"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "ocg_date"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "race"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "scale"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "tcg_date"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "treated_a"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "type"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "upvote"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "view"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "viewsweek"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "ygoprodeck_url"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "cardinfo"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: "Blue-Eyes"
+                kind: "query"
+                name: "archetype"
+                orig: "archetype"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "2100"
+                kind: "query"
+                name: "atk"
+                orig: "atk"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "WIND"
+                kind: "query"
+                name: "attribute"
+                orig: "attribute"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "tcg"
+                kind: "query"
+                name: "banlist"
+                orig: "banlist"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "Metal Raiders"
+                kind: "query"
+                name: "cardset"
+                orig: "cardset"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "tcg"
+                kind: "query"
+                name: "dateregion"
+                orig: "dateregion"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "2000"
+                kind: "query"
+                name: "def"
+                orig: "def"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "2002-08-23"
+                kind: "query"
+                name: "enddate"
+                orig: "enddate"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "Wizard"
+                kind: "query"
+                name: "fname"
+                orig: "fname"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "Speed Duel"
+                kind: "query"
+                name: "format"
+                orig: "format"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "has_effect"
+                orig: "has_effect"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: "6983839"
+                kind: "query"
+                name: "id"
+                orig: "id"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "konami_id"
+                orig: "konami_id"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: "4"
+                kind: "query"
+                name: "level"
+                orig: "level"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "link"
+                orig: "link"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: "top,bottom"
+                kind: "query"
+                name: "linkmarker"
+                orig: "linkmarker"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "misc"
+                orig: "misc"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "Dark Magician"
+                kind: "query"
+                name: "name"
+                orig: "name"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "Wyrm"
+                kind: "query"
+                name: "race"
+                orig: "race"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "scale"
+                orig: "scale"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: "name"
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "staple"
+                orig: "staple"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "2000-01-01"
+                kind: "query"
+                name: "startdate"
+                orig: "startdate"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "tcgplayer_data"
+                orig: "tcgplayer_data"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "Spell Card"
+                kind: "query"
+                name: "type"
+                orig: "type"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/cardinfo.php"
+          parts: [
+            "cardinfo.php"
+          ]
+          select: {
+            exist: [
+              "archetype"
+              "atk"
+              "attribute"
+              "banlist"
+              "cardset"
+              "dateregion"
+              "def"
+              "enddate"
+              "fname"
+              "format"
+              "has_effect"
+              "id"
+              "konami_id"
+              "level"
+              "link"
+              "linkmarker"
+              "misc"
+              "name"
+              "race"
+              "scale"
+              "sort"
+              "staple"
+              "startdate"
+              "tcgplayer_data"
+              "type"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

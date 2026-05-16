@@ -1,0 +1,722 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Yu-Gi-Oh! API",
+    "description": "API providing data on Yu-Gi-Oh! Trading Card Game cards and sets. Includes routes for card information with extensive filtering by card name, set, rarity, type, archetype, banlist status, and more. Rate limited to 20 requests per second.",
+    "version": "7.0.0",
+    "contact": {
+      "name": "YGOPRODeck API Documentation",
+      "url": "https://ygoprodeck.com/api-guide/"
+    },
+    "termsOfService": "https://ygoprodeck.com/api-guide/"
+  },
+  "servers": [
+    {
+      "url": "https://db.ygoprodeck.com/api/v7",
+      "description": "Production API Server (v7)"
+    }
+  ],
+  "paths": {
+    "/cardinfo.php": {
+      "get": {
+        "summary": "Get Card Information",
+        "description": "Retrieve Yu-Gi-Oh! card information with extensive filtering options. Supports filtering by name, type, attributes, stats, sets, archetypes, banlists, and more. Response is cached for 2 days on the server side.",
+        "operationId": "getCardInfo",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "The exact name of the card. You can pass multiple pipe-separated names (e.g., 'Baby Dragon|Time Wizard')",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Dark Magician"
+          },
+          {
+            "name": "fname",
+            "in": "query",
+            "description": "A fuzzy search using a string. For example 'Magician' to search all cards with 'Magician' in the name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Wizard"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "The 8-digit passcode of the card. You can pass multiple comma-separated IDs. Cannot be used with 'name' parameter",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "6983839"
+          },
+          {
+            "name": "konami_id",
+            "in": "query",
+            "description": "The Konami ID of the card (not the passcode)",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "The type of card to filter by (e.g., 'Effect Monster', 'Spell Card', 'Trap Card', 'XYZ Monster'). You can pass multiple comma-separated types",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Spell Card"
+          },
+          {
+            "name": "atk",
+            "in": "query",
+            "description": "Filter by ATK value. Supports operators: lt (less than), lte (less than or equal), gt (greater than), gte (greater than or equal). Example: 'lt2500' or '2500'",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "2100"
+          },
+          {
+            "name": "def",
+            "in": "query",
+            "description": "Filter by DEF value. Supports operators: lt, lte, gt, gte. Example: 'gte2000'",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "2000"
+          },
+          {
+            "name": "level",
+            "in": "query",
+            "description": "Filter by card level/RANK. Supports operators: lt, lte, gt, gte. Example: 'lte8' or '4'",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "4"
+          },
+          {
+            "name": "race",
+            "in": "query",
+            "description": "Filter by card race/type (e.g., 'Spellcaster', 'Warrior', 'Insect'). For Spell/Trap cards, this is the subtype (e.g., 'Equip', 'Field', 'Counter'). You can pass multiple comma-separated races",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Wyrm"
+          },
+          {
+            "name": "attribute",
+            "in": "query",
+            "description": "Filter by card attribute (e.g., 'DARK', 'LIGHT', 'WATER', 'FIRE', 'EARTH', 'WIND', 'DIVINE'). You can pass multiple comma-separated attributes",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "WIND"
+          },
+          {
+            "name": "link",
+            "in": "query",
+            "description": "Filter cards by Link value (for Link Monsters)",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "linkmarker",
+            "in": "query",
+            "description": "Filter cards by Link Marker values (Top, Bottom, Left, Right, Bottom-Left, Bottom-Right, Top-Left, Top-Right). You can pass multiple comma-separated values",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "top,bottom"
+          },
+          {
+            "name": "scale",
+            "in": "query",
+            "description": "Filter cards by Pendulum Scale value",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "cardset",
+            "in": "query",
+            "description": "Filter cards by card set name (e.g., 'Metal Raiders', 'Soul Fusion')",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Metal Raiders"
+          },
+          {
+            "name": "archetype",
+            "in": "query",
+            "description": "Filter cards by archetype (e.g., 'Dark Magician', 'Blue-Eyes', 'Prank-Kids')",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Blue-Eyes"
+          },
+          {
+            "name": "banlist",
+            "in": "query",
+            "description": "Filter cards by banlist status (TCG, OCG, Goat)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "TCG",
+                "OCG",
+                "Goat"
+              ]
+            },
+            "example": "tcg"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the order of cards (atk, def, name, type, level, id, new)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "atk",
+                "def",
+                "name",
+                "type",
+                "level",
+                "id",
+                "new"
+              ]
+            },
+            "example": "name"
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "description": "Filter by card format (tcg, goat, ocg goat, speed duel, master duel, rush duel, duel links, genesys). Using 'tcg' returns all cards with a TCG release date and excludes Speed Duel/Rush Duel cards",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "tcg",
+                "goat",
+                "ocg goat",
+                "speed duel",
+                "master duel",
+                "rush duel",
+                "duel links",
+                "genesys"
+              ]
+            },
+            "example": "Speed Duel"
+          },
+          {
+            "name": "misc",
+            "in": "query",
+            "description": "Pass 'yes' to show additional response information including beta_name, views, upvotes, formats, treated_as, tcg_date, ocg_date, konami_id, md_rarity, has_effect",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "yes"
+              ]
+            }
+          },
+          {
+            "name": "staple",
+            "in": "query",
+            "description": "Filter to show only staple cards. Pass 'yes' to enable",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "yes"
+              ]
+            }
+          },
+          {
+            "name": "has_effect",
+            "in": "query",
+            "description": "Check if a card actually has an effect or not. Pass true/false",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "startdate",
+            "in": "query",
+            "description": "Filter cards released on or after this date. Format: YYYY-MM-DD. Use with 'enddate' and 'dateregion'",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "example": "2000-01-01"
+          },
+          {
+            "name": "enddate",
+            "in": "query",
+            "description": "Filter cards released on or before this date. Format: YYYY-MM-DD. Use with 'startdate' and 'dateregion'",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "example": "2002-08-23"
+          },
+          {
+            "name": "dateregion",
+            "in": "query",
+            "description": "Specify the region for date filtering (tcg or ocg). Defaults to 'tcg'",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "tcg",
+                "ocg"
+              ],
+              "default": "tcg"
+            }
+          },
+          {
+            "name": "tcgplayer_data",
+            "in": "query",
+            "description": "Use TCGplayer card set data instead of internal data. This replaces card_sets information with TCGplayer data including set_edition and set_url",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with card data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Card"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "data": [
+                    {
+                      "id": 6983839,
+                      "name": "Tornado Dragon",
+                      "type": "XYZ Monster",
+                      "frameType": "xyz",
+                      "desc": "2 Level 4 monsters\nOnce per turn (Quick Effect): You can detach 1 material from this card, then target 1 Spell/Trap on the field; destroy it.",
+                      "atk": 2100,
+                      "def": 2000,
+                      "level": 4,
+                      "race": "Wyrm",
+                      "attribute": "WIND",
+                      "card_sets": [
+                        {
+                          "set_name": "Maximum Crisis",
+                          "set_code": "MACR-EN081",
+                          "set_rarity": "Secret Rare",
+                          "set_rarity_code": "(ScR)",
+                          "set_price": "4.32"
+                        }
+                      ],
+                      "card_images": [
+                        {
+                          "id": 6983839,
+                          "image_url": "https://images.ygoprodeck.com/images/cards/6983839.jpg",
+                          "image_url_small": "https://images.ygoprodeck.com/images/cards_small/6983839.jpg",
+                          "image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/6983839.jpg"
+                        }
+                      ],
+                      "card_prices": [
+                        {
+                          "cardmarket_price": "0.42",
+                          "tcgplayer_price": "0.48",
+                          "ebay_price": "2.99",
+                          "amazon_price": "0.77",
+                          "coolstuffinc_price": "0.99"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid parameters"
+          },
+          "429": {
+            "description": "Rate limit exceeded - Blocked for 1 hour after exceeding 20 requests per second"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Card": {
+        "type": "object",
+        "description": "Yu-Gi-Oh! card information object. Properties vary based on card type (Monster, Spell, Trap, etc.). Null or empty values are not returned",
+        "required": [
+          "id",
+          "name",
+          "type",
+          "frameType",
+          "desc"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "8-digit passcode/ID of the card",
+            "example": 6983839
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the card",
+            "example": "Tornado Dragon"
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of card (Normal Monster, Effect Monster, Synchro Monster, XYZ Monster, Spell Card, Trap Card, etc.)",
+            "example": "XYZ Monster"
+          },
+          "frameType": {
+            "type": "string",
+            "description": "The backdrop frame type (normal, effect, synchro, xyz, spell, trap, link, etc.)",
+            "example": "xyz"
+          },
+          "desc": {
+            "type": "string",
+            "description": "Card description/effect text",
+            "example": "2 Level 4 monsters\nOnce per turn (Quick Effect): You can detach 1 material from this card, then target 1 Spell/Trap on the field; destroy it."
+          },
+          "atk": {
+            "type": "integer",
+            "description": "ATK value (Monster cards only)",
+            "example": 2100
+          },
+          "def": {
+            "type": "integer",
+            "description": "DEF value (Monster cards only, not Link Monsters)",
+            "example": 2000
+          },
+          "level": {
+            "type": "integer",
+            "description": "Level or RANK of the card (Monster cards only, not Link Monsters)",
+            "example": 4
+          },
+          "race": {
+            "type": "string",
+            "description": "Card race/type. For monsters: Spellcaster, Warrior, Dragon, etc. For Spell/Trap: Field, Equip, Counter, etc.",
+            "example": "Wyrm"
+          },
+          "attribute": {
+            "type": "string",
+            "description": "Attribute of the card (Monster cards only: DARK, LIGHT, WATER, FIRE, EARTH, WIND, DIVINE)",
+            "example": "WIND"
+          },
+          "archetype": {
+            "type": "string",
+            "description": "The archetype the card belongs to",
+            "example": "Blue-Eyes"
+          },
+          "scale": {
+            "type": "integer",
+            "description": "Pendulum Scale value (Pendulum Monsters only)"
+          },
+          "linkval": {
+            "type": "integer",
+            "description": "Link value (Link Monsters only)"
+          },
+          "linkmarkers": {
+            "type": "array",
+            "description": "Link Markers (Link Monsters only)",
+            "items": {
+              "type": "string",
+              "enum": [
+                "Top",
+                "Bottom",
+                "Left",
+                "Right",
+                "Bottom-Left",
+                "Bottom-Right",
+                "Top-Left",
+                "Top-Right"
+              ]
+            }
+          },
+          "ygoprodeck_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to the card's page on YGOPRODeck",
+            "example": "https://ygoprodeck.com/card/tornado-dragon-6983839"
+          },
+          "card_sets": {
+            "type": "array",
+            "description": "Array of card sets this card appears in",
+            "items": {
+              "$ref": "#/components/schemas/CardSet"
+            }
+          },
+          "card_images": {
+            "type": "array",
+            "description": "Array of card images including alternate artworks",
+            "items": {
+              "$ref": "#/components/schemas/CardImage"
+            }
+          },
+          "card_prices": {
+            "type": "array",
+            "description": "Array of card prices from various vendors (lowest price across all versions)",
+            "items": {
+              "$ref": "#/components/schemas/CardPrice"
+            }
+          },
+          "banlist_info": {
+            "$ref": "#/components/schemas/BanlistInfo"
+          },
+          "beta_name": {
+            "type": "string",
+            "description": "Old/temporary/translated name (only when misc=yes)"
+          },
+          "views": {
+            "type": "integer",
+            "description": "Number of times card has been viewed in database (only when misc=yes)"
+          },
+          "viewsweek": {
+            "type": "integer",
+            "description": "Number of times card has been viewed this week (only when misc=yes)"
+          },
+          "upvotes": {
+            "type": "integer",
+            "description": "Number of upvotes (only when misc=yes)"
+          },
+          "downvotes": {
+            "type": "integer",
+            "description": "Number of downvotes (only when misc=yes)"
+          },
+          "formats": {
+            "type": "array",
+            "description": "Available formats the card is in (only when misc=yes)",
+            "items": {
+              "type": "string",
+              "enum": [
+                "tcg",
+                "ocg",
+                "master duel",
+                "goat",
+                "ocg goat",
+                "duel links",
+                "rush duel",
+                "speed duel",
+                "genesys"
+              ]
+            }
+          },
+          "treated_as": {
+            "type": "string",
+            "description": "If the card is treated as another card (e.g., Harpie Lady 1,2,3 are treated as Harpie Lady) (only when misc=yes)"
+          },
+          "tcg_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Original TCG release date (only when misc=yes)"
+          },
+          "ocg_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Original OCG release date (only when misc=yes)"
+          },
+          "konami_id": {
+            "type": "integer",
+            "description": "Konami ID of the card (only when misc=yes)"
+          },
+          "md_rarity": {
+            "type": "string",
+            "description": "Master Duel rarity (only when misc=yes)"
+          },
+          "has_effect": {
+            "type": "integer",
+            "description": "Whether card has an actual text effect (1=true, 0=false) (only when misc=yes)",
+            "enum": [
+              0,
+              1
+            ]
+          },
+          "genesys_points": {
+            "type": "integer",
+            "description": "Genesys format points code (only when format=genesys). Most cards are 0 unless otherwise stated"
+          }
+        }
+      },
+      "CardSet": {
+        "type": "object",
+        "description": "Information about a card set/pack",
+        "properties": {
+          "set_name": {
+            "type": "string",
+            "description": "Name of the card set",
+            "example": "Maximum Crisis"
+          },
+          "set_code": {
+            "type": "string",
+            "description": "Set code for this specific printing",
+            "example": "MACR-EN081"
+          },
+          "set_rarity": {
+            "type": "string",
+            "description": "Rarity of the card in this set",
+            "example": "Secret Rare"
+          },
+          "set_rarity_code": {
+            "type": "string",
+            "description": "Abbreviated rarity code",
+            "example": "(ScR)"
+          },
+          "set_price": {
+            "type": "string",
+            "description": "Price in USD for this specific set version",
+            "example": "4.32"
+          },
+          "set_edition": {
+            "type": "string",
+            "description": "Edition of the set (only when using tcgplayer_data parameter)"
+          },
+          "set_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to TCGplayer listing (only when using tcgplayer_data parameter)"
+          }
+        }
+      },
+      "CardImage": {
+        "type": "object",
+        "description": "Image URLs for a card or alternate artwork",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Card ID for this specific image/artwork",
+            "example": 6983839
+          },
+          "image_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Full-size card image URL",
+            "example": "https://images.ygoprodeck.com/images/cards/6983839.jpg"
+          },
+          "image_url_small": {
+            "type": "string",
+            "format": "uri",
+            "description": "Small card image URL",
+            "example": "https://images.ygoprodeck.com/images/cards_small/6983839.jpg"
+          },
+          "image_url_cropped": {
+            "type": "string",
+            "format": "uri",
+            "description": "Cropped card artwork URL",
+            "example": "https://images.ygoprodeck.com/images/cards_cropped/6983839.jpg"
+          }
+        }
+      },
+      "CardPrice": {
+        "type": "object",
+        "description": "Card prices from multiple vendors (lowest price across all versions)",
+        "properties": {
+          "cardmarket_price": {
+            "type": "string",
+            "description": "Price from Cardmarket in EUR (€)",
+            "example": "0.42"
+          },
+          "tcgplayer_price": {
+            "type": "string",
+            "description": "Price from TCGplayer in USD ($)",
+            "example": "0.48"
+          },
+          "ebay_price": {
+            "type": "string",
+            "description": "Price from eBay in USD ($)",
+            "example": "2.99"
+          },
+          "amazon_price": {
+            "type": "string",
+            "description": "Price from Amazon in USD ($)",
+            "example": "0.77"
+          },
+          "coolstuffinc_price": {
+            "type": "string",
+            "description": "Price from CoolStuffInc in USD ($)",
+            "example": "0.99"
+          }
+        }
+      },
+      "BanlistInfo": {
+        "type": "object",
+        "description": "Banlist status information for the card",
+        "properties": {
+          "ban_tcg": {
+            "type": "string",
+            "description": "Status on TCG banlist (Forbidden, Limited, Semi-Limited, or not listed)",
+            "enum": [
+              "Forbidden",
+              "Limited",
+              "Semi-Limited"
+            ]
+          },
+          "ban_ocg": {
+            "type": "string",
+            "description": "Status on OCG banlist (Forbidden, Limited, Semi-Limited, or not listed)",
+            "enum": [
+              "Forbidden",
+              "Limited",
+              "Semi-Limited"
+            ]
+          },
+          "ban_goat": {
+            "type": "string",
+            "description": "Status on GOAT format banlist (Forbidden, Limited, Semi-Limited, or not listed)",
+            "enum": [
+              "Forbidden",
+              "Limited",
+              "Semi-Limited"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "x-rate-limit": {
+    "requests": 20,
+    "period": "1 second",
+    "blockDuration": "1 hour"
+  },
+  "x-cache-duration": "2 days (172800 seconds)",
+  "externalDocs": {
+    "description": "Official API Documentation",
+    "url": "https://ygoprodeck.com/api-guide/"
+  }
+}

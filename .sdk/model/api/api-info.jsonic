@@ -1,0 +1,25 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "YGOPRODeck API Documentation"
+        url: "https://ygoprodeck.com/api-guide/"
+      }
+      description: "API providing data on Yu-Gi-Oh! Trading Card Game cards and sets. Includes routes for card information with extensive filtering by card name, set, rarity, type, archetype, banlist status, and more. Rate limited to 20 requests per second."
+      servers: [
+        {
+          description: "Production API Server (v7)"
+          url: "https://db.ygoprodeck.com/api/v7"
+        }
+      ]
+      termsOfService: "https://ygoprodeck.com/api-guide/"
+      title: "Yu-Gi-Oh! API"
+      version: "7.0.0"
+    }
+  }
+}
+
+}
