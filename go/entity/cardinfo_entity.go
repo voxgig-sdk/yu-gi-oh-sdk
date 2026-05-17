@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/yu-gi-oh-sdk/core"
+	"github.com/voxgig-sdk/yu-gi-oh-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/yu-gi-oh-sdk/go/utility/struct"
 )
 
 type CardinfoEntity struct {

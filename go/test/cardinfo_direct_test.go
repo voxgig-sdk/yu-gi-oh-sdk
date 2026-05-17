@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/yu-gi-oh-sdk"
-	"github.com/voxgig-sdk/yu-gi-oh-sdk/core"
+	sdk "github.com/voxgig-sdk/yu-gi-oh-sdk/go"
+	"github.com/voxgig-sdk/yu-gi-oh-sdk/go/core"
 )
 
 func TestCardinfoDirect(t *testing.T) {

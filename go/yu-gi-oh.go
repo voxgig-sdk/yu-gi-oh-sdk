@@ -1,10 +1,10 @@
 package voxgigyugiohsdk
 
 import (
-	"github.com/voxgig-sdk/yu-gi-oh-sdk/core"
-	"github.com/voxgig-sdk/yu-gi-oh-sdk/entity"
-	"github.com/voxgig-sdk/yu-gi-oh-sdk/feature"
-	_ "github.com/voxgig-sdk/yu-gi-oh-sdk/utility"
+	"github.com/voxgig-sdk/yu-gi-oh-sdk/go/core"
+	"github.com/voxgig-sdk/yu-gi-oh-sdk/go/entity"
+	"github.com/voxgig-sdk/yu-gi-oh-sdk/go/feature"
+	_ "github.com/voxgig-sdk/yu-gi-oh-sdk/go/utility"
 )
 
 // Type aliases preserve external API.
