@@ -15,9 +15,6 @@ module YuGiOhConfig
       },
       "options" => {
         "base" => "https://db.ygoprodeck.com/api/v7",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },

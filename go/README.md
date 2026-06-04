@@ -28,16 +28,13 @@ package main
 
 import (
     "fmt"
-    "os"
 
     sdk "github.com/voxgig-sdk/yu-gi-oh-sdk/go"
     "github.com/voxgig-sdk/yu-gi-oh-sdk/go/core"
 )
 
 func main() {
-    client := sdk.NewYuGiOhSDK(map[string]any{
-        "apikey": os.Getenv("YU-GI-OH_APIKEY"),
-    })
+    client := sdk.NewYuGiOhSDK(map[string]any{})
 ```
 
 ### 2. List cardinfos
@@ -140,7 +137,6 @@ Create a `.env.local` file at the project root:
 
 ```
 YU-GI-OH_TEST_LIVE=TRUE
-YU-GI-OH_APIKEY=<your-key>
 ```
 
 Then run:
@@ -162,7 +158,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `"apikey"` | `string` | API key for authentication. |
 | `"base"` | `string` | Base URL of the API server. |
 | `"prefix"` | `string` | URL path prefix prepended to all requests. |
 | `"suffix"` | `string` | URL path suffix appended to all requests. |

@@ -113,7 +113,6 @@ function basicSetup(extra?: any) {
     'YU_GI_OH_TEST_CARDINFO_ENTID': idmap,
     'YU_GI_OH_TEST_LIVE': 'FALSE',
     'YU_GI_OH_TEST_EXPLAIN': 'FALSE',
-    'YU_GI_OH_APIKEY': 'NONE',
   })
 
   idmap = env['YU_GI_OH_TEST_CARDINFO_ENTID']
@@ -123,7 +122,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new YuGiOhSDK(merge([
       {
-        apikey: env.YU_GI_OH_APIKEY,
       },
       extra
     ]))

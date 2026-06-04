@@ -86,7 +86,6 @@ function cardinfo_basic_setup($extra)
         "YUGIOH_TEST_CARDINFO_ENTID" => $idmap,
         "YUGIOH_TEST_LIVE" => "FALSE",
         "YUGIOH_TEST_EXPLAIN" => "FALSE",
-        "YUGIOH_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +97,6 @@ function cardinfo_basic_setup($extra)
     if ($env["YUGIOH_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["YUGIOH_APIKEY"],
             ],
             $extra ?? [],
         ]);

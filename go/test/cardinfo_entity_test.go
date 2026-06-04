@@ -119,7 +119,6 @@ func cardinfoBasicSetup(extra map[string]any) *entityTestSetup {
 		"YUGIOH_TEST_CARDINFO_ENTID": idmap,
 		"YUGIOH_TEST_LIVE":      "FALSE",
 		"YUGIOH_TEST_EXPLAIN":   "FALSE",
-		"YUGIOH_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["YUGIOH_TEST_CARDINFO_ENTID"])
@@ -130,7 +129,6 @@ func cardinfoBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["YUGIOH_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["YUGIOH_APIKEY"],
 			},
 			extra,
 		})

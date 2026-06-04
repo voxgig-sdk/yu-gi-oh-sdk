@@ -18,8 +18,29 @@ main: {
       termsOfService: "https://ygoprodeck.com/api-guide/"
       title: "Yu-Gi-Oh! API"
       version: "7.0.0"
+      tagline: "Search the full Yu-Gi-Oh! TCG/OCG card database — names, types, attributes, archetypes, banlist status and more"
+      homepage: "https://ygoprodeck.com/"
+      docs_url: "https://ygoprodeck.com/api-guide/"
+      license_short: "Free public API for non-commercial use; data must be cached locally and card images must be rehosted (not hotlinked)."
+      license_md: `- Free to use; YGOPRODeck asks consumers to store pulled data locally and avoid repeated identical requests.
+- Card images must be downloaded and re-served from your own host; continuous hotlinking can result in IP blacklisting.
+- Yu-Gi-Oh! card names, artwork and game content are the property of Konami Digital Entertainment; YGOPRODeck is an independent fan-run service.
+- Check the [API guide](https://ygoprodeck.com/api-guide/) for current attribution and usage terms before shipping.`
+      about_md: `[YGOPRODeck](https://ygoprodeck.com/) is a long-running, fan-operated Yu-Gi-Oh! card database, deck builder and tournament platform. Its public REST API (currently \`v7\`) is the same back-end the site uses and is widely consumed by community deck-building tools, bots and trading-card apps.
+
+What you get from the API:
+
+- Detailed card records: name, type, frame type, description/effect text, ATK/DEF, level, race, attribute, archetype and card ID.
+- Card images and small/cropped art URLs for each printing.
+- Pricing snapshots from common marketplaces (Cardmarket, TCGPlayer, eBay, Amazon, CoolStuffInc).
+- Set/printing data, banlist status (TCG, OCG, Goat) and format legality.
+- Rich filtering: by name (exact or fuzzy), id, type, race, attribute, archetype, link markers, pendulum scale, level/rank, ATK/DEF ranges and date ranges.
+
+Operational notes: requests are served from \`https://db.ygoprodeck.com/api/v7\` and the documented rate limit is roughly 20 requests per second per IP, with sustained abuse leading to temporary blocks. Responses are cached on the server side, so YGOPRODeck recommends mirroring results locally rather than re-fetching the same query.`
+      entity_desc: {
+        cardinfo: "Card lookup and search across the full Yu-Gi-Oh! TCG/OCG catalogue, backed by `GET /cardinfo.php` with parameters for name, id, type, race, attribute, archetype, banlist, format, level, ATK/DEF, link markers, pendulum scale and date ranges."
+      }
+      auth: false
     }
   }
-}
-
 }

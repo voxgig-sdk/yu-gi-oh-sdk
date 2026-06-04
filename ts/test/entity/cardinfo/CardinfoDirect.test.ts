@@ -79,14 +79,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'YUGIOH_TEST_CARDINFO_ENTID': {},
     'YUGIOH_TEST_LIVE': 'FALSE',
-    'YUGIOH_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.YUGIOH_TEST_LIVE
 
   if (live) {
     const client = new YuGiOhSDK({
-      apikey: env.YUGIOH_APIKEY,
     })
 
     let idmap: any = env['YUGIOH_TEST_CARDINFO_ENTID']
