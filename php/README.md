@@ -10,7 +10,7 @@ The PHP SDK for the YuGiOh API — an entity-oriented client using PHP conventio
 
 ## Install
 ```bash
-composer require voxgig/yu-gi-oh-sdk
+composer require voxgig-sdk/yu-gi-oh
 ```
 
 

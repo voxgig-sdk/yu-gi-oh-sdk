@@ -10,7 +10,7 @@ The TypeScript SDK for the YuGiOh API — a type-safe, entity-oriented client wi
 
 ## Install
 ```bash
-npm install yu-gi-oh
+npm install @voxgig-sdk/yu-gi-oh
 ```
 ## Tutorial: your first API call
 

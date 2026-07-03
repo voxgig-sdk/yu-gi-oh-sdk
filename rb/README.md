@@ -10,13 +10,13 @@ The Ruby SDK for the YuGiOh API — an entity-oriented client using idiomatic Ru
 
 ## Install
 ```bash
-gem install yu-gi-oh-sdk
+gem install voxgig-sdk-yu-gi-oh
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "yu-gi-oh-sdk"
+gem "voxgig-sdk-yu-gi-oh"
 ```
 
 Then run:

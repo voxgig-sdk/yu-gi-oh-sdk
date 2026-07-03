@@ -10,7 +10,7 @@ The Lua SDK for the YuGiOh API — an entity-oriented client using Lua conventio
 
 ## Install
 ```bash
-luarocks install yu-gi-oh-sdk
+luarocks install voxgig-sdk-yu-gi-oh
 ```
 
 If the module is not yet published, add the source directory to

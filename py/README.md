@@ -10,7 +10,7 @@ The Python SDK for the YuGiOh API — an entity-oriented client following Python
 
 ## Install
 ```bash
-pip install yu-gi-oh-sdk
+pip install voxgig-sdk-yu-gi-oh
 ```
 
 Or install from source:
