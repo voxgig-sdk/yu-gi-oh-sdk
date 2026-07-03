@@ -92,6 +92,7 @@ function cardinfo_basic_setup(extra)
     ["YUGIOH_TEST_CARDINFO_ENTID"] = idmap,
     ["YUGIOH_TEST_LIVE"] = "FALSE",
     ["YUGIOH_TEST_EXPLAIN"] = "FALSE",
+    ["YUGIOH_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -103,6 +104,7 @@ function cardinfo_basic_setup(extra)
   if env["YUGIOH_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
+        apikey = env["YUGIOH_APIKEY"],
       },
       extra or {},
     })

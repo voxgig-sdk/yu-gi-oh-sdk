@@ -1,22 +1,8 @@
 # YuGiOh SDK
 
-Search the full Yu-Gi-Oh! TCG/OCG card database — names, types, attributes, archetypes, banlist status and more
+Yu-Gi-Oh! API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Yu-Gi-Oh! API
-
-[YGOPRODeck](https://ygoprodeck.com/) is a long-running, fan-operated Yu-Gi-Oh! card database, deck builder and tournament platform. Its public REST API (currently `v7`) is the same back-end the site uses and is widely consumed by community deck-building tools, bots and trading-card apps.
-
-What you get from the API:
-
-- Detailed card records: name, type, frame type, description/effect text, ATK/DEF, level, race, attribute, archetype and card ID.
-- Card images and small/cropped art URLs for each printing.
-- Pricing snapshots from common marketplaces (Cardmarket, TCGPlayer, eBay, Amazon, CoolStuffInc).
-- Set/printing data, banlist status (TCG, OCG, Goat) and format legality.
-- Rich filtering: by name (exact or fuzzy), id, type, race, attribute, archetype, link markers, pendulum scale, level/rank, ATK/DEF ranges and date ranges.
-
-Operational notes: requests are served from `https://db.ygoprodeck.com/api/v7` and the documented rate limit is roughly 20 requests per second per IP, with sustained abuse leading to temporary blocks. Responses are cached on the server side, so YGOPRODeck recommends mirroring results locally rather than re-fetching the same query.
 
 ## Try it
 
@@ -50,29 +36,31 @@ gem install yu-gi-oh-sdk
 luarocks install yu-gi-oh-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { YuGiOhSDK } from 'yu-gi-oh'
 
-const client = new YuGiOhSDK({})
+const client = new YuGiOhSDK({
+  apikey: process.env.YU-GI-OH_APIKEY,
+})
 
 // List all cardinfos
 const cardinfos = await client.Cardinfo().list()
+console.log(cardinfos.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -102,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Cardinfo** | Card lookup and search across the full Yu-Gi-Oh! TCG/OCG catalogue, backed by `GET /cardinfo.php` with parameters for name, id, type, race, attribute, archetype, banlist, format, level, ATK/DEF, link markers, pendulum scale and date ranges. | `/cardinfo.php` |
+| **Cardinfo** |  | `/cardinfo.php` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -112,12 +100,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from yugioh_sdk import YuGiOhSDK
 
-client = YuGiOhSDK({})
+client = YuGiOhSDK({
+    "apikey": os.environ.get("YU-GI-OH_APIKEY"),
+})
 
 # List all cardinfos
-cardinfos, err = client.Cardinfo(None).list(None, None)
+cardinfos, err = client.Cardinfo().list()
+print(cardinfos)
 ```
 
 ### PHP
@@ -126,10 +118,13 @@ cardinfos, err = client.Cardinfo(None).list(None, None)
 <?php
 require_once 'yugioh_sdk.php';
 
-$client = new YuGiOhSDK([]);
+$client = new YuGiOhSDK([
+    "apikey" => getenv("YU-GI-OH_APIKEY"),
+]);
 
 // List all cardinfos
-[$cardinfos, $err] = $client->Cardinfo(null)->list(null, null);
+[$cardinfos, $err] = $client->Cardinfo()->list();
+print_r($cardinfos);
 ```
 
 ### Golang
@@ -137,10 +132,13 @@ $client = new YuGiOhSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/yu-gi-oh-sdk/go"
 
-client := sdk.NewYuGiOhSDK(map[string]any{})
+client := sdk.NewYuGiOhSDK(map[string]any{
+    "apikey": os.Getenv("YU-GI-OH_APIKEY"),
+})
 
 // List all cardinfos
 cardinfos, err := client.Cardinfo(nil).List(nil, nil)
+fmt.Println(cardinfos)
 ```
 
 ### Ruby
@@ -148,10 +146,13 @@ cardinfos, err := client.Cardinfo(nil).List(nil, nil)
 ```ruby
 require_relative "YuGiOh_sdk"
 
-client = YuGiOhSDK.new({})
+client = YuGiOhSDK.new({
+  "apikey" => ENV["YU-GI-OH_APIKEY"],
+})
 
 # List all cardinfos
-cardinfos, err = client.Cardinfo(nil).list(nil, nil)
+cardinfos, err = client.Cardinfo().list
+puts cardinfos
 ```
 
 ### Lua
@@ -159,10 +160,13 @@ cardinfos, err = client.Cardinfo(nil).list(nil, nil)
 ```lua
 local sdk = require("yu-gi-oh_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("YU-GI-OH_APIKEY"),
+})
 
 -- List all cardinfos
-local cardinfos, err = client:Cardinfo(nil):list(nil, nil)
+local cardinfos, err = client:Cardinfo():list()
+print(cardinfos)
 ```
 
 ## Unit testing in offline mode
@@ -181,25 +185,21 @@ const result = await client.Cardinfo().load({ id: 'test01' })
 ### Python
 
 ```python
-client = YuGiOhSDK.test(None, None)
-result, err = client.Cardinfo(None).load(
-    {"id": "test01"}, None
-)
+client = YuGiOhSDK.test()
+result, err = client.Cardinfo().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = YuGiOhSDK::test(null, null);
-[$result, $err] = $client->Cardinfo(null)->load(
-    ["id" => "test01"], null
-);
+$client = YuGiOhSDK::test();
+[$result, $err] = $client->Cardinfo()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Cardinfo(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -208,19 +208,15 @@ result, err := client.Cardinfo(nil).Load(
 ### Ruby
 
 ```ruby
-client = YuGiOhSDK.test(nil, nil)
-result, err = client.Cardinfo(nil).load(
-  { "id" => "test01" }, nil
-)
+client = YuGiOhSDK.test
+result, err = client.Cardinfo().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Cardinfo(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Cardinfo():load({ id = "test01" })
 ```
 
 ## How it works
@@ -324,16 +320,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Yu-Gi-Oh! API
-
-- Upstream: [https://ygoprodeck.com/](https://ygoprodeck.com/)
-- API docs: [https://ygoprodeck.com/api-guide/](https://ygoprodeck.com/api-guide/)
-
-- Free to use; YGOPRODeck asks consumers to store pulled data locally and avoid repeated identical requests.
-- Card images must be downloaded and re-served from your own host; continuous hotlinking can result in IP blacklisting.
-- Yu-Gi-Oh! card names, artwork and game content are the property of Konami Digital Entertainment; YGOPRODeck is an independent fan-run service.
-- Check the [API guide](https://ygoprodeck.com/api-guide/) for current attribution and usage terms before shipping.
 
 ---
 

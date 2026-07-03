@@ -61,12 +61,14 @@ def _cardinfo_direct_setup(mockres):
     env = runner.env_override({
         "YUGIOH_TEST_CARDINFO_ENTID": {},
         "YUGIOH_TEST_LIVE": "FALSE",
+        "YUGIOH_APIKEY": "NONE",
     })
 
     live = env.get("YUGIOH_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("YUGIOH_APIKEY"),
         }
         client = YuGiOhSDK(merged_opts)
         return {

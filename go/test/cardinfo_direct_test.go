@@ -93,12 +93,14 @@ func cardinfoDirectSetup(mockres any) *cardinfoDirectSetupResult {
 	env := envOverride(map[string]any{
 		"YUGIOH_TEST_CARDINFO_ENTID": map[string]any{},
 		"YUGIOH_TEST_LIVE":    "FALSE",
+		"YUGIOH_APIKEY":       "NONE",
 	})
 
 	live := env["YUGIOH_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["YUGIOH_APIKEY"],
 		}
 		client := sdk.NewYuGiOhSDK(mergedOpts)
 
