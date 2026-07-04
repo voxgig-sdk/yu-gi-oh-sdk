@@ -50,8 +50,7 @@ class TestCardinfoEntity:
         cardinfo_ref01_ent = client.Cardinfo(None)
         cardinfo_ref01_match = {}
 
-        cardinfo_ref01_list_result, err = cardinfo_ref01_ent.list(cardinfo_ref01_match, None)
-        assert err is None
+        cardinfo_ref01_list_result = cardinfo_ref01_ent.list(cardinfo_ref01_match, None)
         assert isinstance(cardinfo_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _cardinfo_basic_setup(extra):
         "YUGIOH_TEST_CARDINFO_ENTID": idmap,
         "YUGIOH_TEST_LIVE": "FALSE",
         "YUGIOH_TEST_EXPLAIN": "FALSE",
-        "YUGIOH_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _cardinfo_basic_setup(extra):
     if env.get("YUGIOH_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("YUGIOH_APIKEY"),
             },
             extra or {},
         ])

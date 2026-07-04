@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Cardinfo,
+  CardinfoListMatch,
+} from '../YuGiOhTypes'
 
 // TODO: needs Entity superclass
-class CardinfoEntity extends YuGiOhEntityBase {
+class CardinfoEntity extends YuGiOhEntityBase<Cardinfo> {
 
   constructor(client: YuGiOhSDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +37,7 @@ class CardinfoEntity extends YuGiOhEntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: CardinfoListMatch, ctrl?: Control): Promise<Cardinfo[]> {
 
     const utility = this._utility
 
@@ -133,7 +137,9 @@ class CardinfoEntity extends YuGiOhEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Cardinfo[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

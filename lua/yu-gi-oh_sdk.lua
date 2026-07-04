@@ -244,6 +244,19 @@ end
 
 
 
+-- Idiomatic facade: client:cardinfo():list() / client:cardinfo():load({ id = ... })
+function YuGiOhSDK:cardinfo(data)
+  local EntityMod = require("entity.cardinfo_entity")
+  if data == nil then
+    if self._cardinfo == nil then
+      self._cardinfo = EntityMod.new(self, nil)
+    end
+    return self._cardinfo
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:cardinfo() instead.
 function YuGiOhSDK:Cardinfo(data)
   local EntityMod = require("entity.cardinfo_entity")
   return EntityMod.new(self, data)

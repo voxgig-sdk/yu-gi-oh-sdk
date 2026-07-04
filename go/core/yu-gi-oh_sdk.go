@@ -245,6 +245,9 @@ func (sdk *YuGiOhSDK) Direct(fetchargs map[string]any) (map[string]any, error) {
 }
 
 
+// Cardinfo returns a Cardinfo entity bound to this client.
+// Idiomatic usage: client.Cardinfo(nil).List(nil, nil) or
+// client.Cardinfo(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *YuGiOhSDK) Cardinfo(data map[string]any) YuGiOhEntity {
 	return NewCardinfoEntityFunc(sdk, data)
 }

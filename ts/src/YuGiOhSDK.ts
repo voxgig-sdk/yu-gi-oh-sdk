@@ -2,6 +2,8 @@
 
 import { CardinfoEntity } from './entity/CardinfoEntity'
 
+export type * from './YuGiOhTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class YuGiOhSDK {
 
 
 
+  _cardinfo?: CardinfoEntity
+
+  // Idiomatic facade: `client.cardinfo.list()` / `client.cardinfo.load({ id })`.
+  get cardinfo(): CardinfoEntity {
+    return (this._cardinfo ??= new CardinfoEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.cardinfo` instead. */
   Cardinfo(data?: any) {
     const self = this
     return new CardinfoEntity(self,data)
