@@ -109,7 +109,7 @@ Alias for `YuGiOhSDK.test()`.
 ## CardinfoEntity
 
 ```ts
-const cardinfo = client.cardinfo
+const cardinfo = client.Cardinfo()
 ```
 
 ### Fields
@@ -156,7 +156,7 @@ const cardinfo = client.cardinfo
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.cardinfo.list()
+const results = await client.Cardinfo().list()
 ```
 
 ### Common Methods

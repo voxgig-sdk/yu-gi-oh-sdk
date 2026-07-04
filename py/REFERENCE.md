@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## CardinfoEntity
 
 ```python
-cardinfo = client.cardinfo
+cardinfo = client.Cardinfo()
 ```
 
 ### Fields
@@ -127,7 +127,9 @@ cardinfo = client.cardinfo
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.cardinfo.list({})
+results = client.Cardinfo().list({})
+for cardinfo in results:
+    print(cardinfo)
 ```
 
 ### Common Methods

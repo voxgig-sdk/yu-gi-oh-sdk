@@ -29,18 +29,16 @@ require_once 'yugioh_sdk.php';
 $client = new YuGiOhSDK();
 ```
 
-### 2. List cardinfos
+### 2. List cardinfo records
 
 ```php
 try {
-    $result = $client->cardinfo()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of Cardinfo records — iterate directly.
+    $cardinfos = $client->Cardinfo()->list();
+    foreach ($cardinfos as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -86,13 +84,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = YuGiOhSDK::test();
+$client = YuGiOhSDK::test([
+    "entity" => ["cardinfo" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->cardinfo()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$cardinfo = $client->Cardinfo()->load(["id" => "test01"]);
+print_r($cardinfo);
 ```
 
 ### Use a custom fetch function
@@ -259,7 +261,7 @@ API path: `/cardinfo.php`
 
 ### Cardinfo
 
-Create an instance: `const cardinfo = client.cardinfo`
+Create an instance: `$cardinfo = $client->Cardinfo();`
 
 #### Operations
 
@@ -306,8 +308,9 @@ Create an instance: `const cardinfo = client.cardinfo`
 
 #### Example: List
 
-```ts
-const cardinfos = await client.cardinfo.list()
+```php
+// list() returns an array of Cardinfo records (throws on error).
+$cardinfos = $client->Cardinfo()->list();
 ```
 
 
@@ -382,7 +385,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$cardinfo = $client->cardinfo();
+$cardinfo = $client->Cardinfo();
 $cardinfo->load(["id" => "example_id"]);
 
 // $cardinfo->dataGet() now returns the loaded cardinfo data

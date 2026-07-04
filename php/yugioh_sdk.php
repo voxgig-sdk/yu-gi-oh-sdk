@@ -233,10 +233,10 @@ class YuGiOhSDK
 
     private $_cardinfo = null;
 
-    // Idiomatic facade: $client->cardinfo()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Cardinfo() (PHP method
-    // names are case-insensitive).
-    public function cardinfo($data = null)
+    // Canonical facade: $client->Cardinfo()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->cardinfo()
+    // resolves here too.
+    public function Cardinfo($data = null)
     {
         require_once __DIR__ . '/entity/cardinfo_entity.php';
         if ($data === null) {

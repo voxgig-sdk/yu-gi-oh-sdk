@@ -208,13 +208,7 @@ class YuGiOhSDK
   end
 
 
-  # Idiomatic facade: client.cardinfo.list / client.cardinfo.load({ "id" => ... })
-  def cardinfo
-    require_relative 'entity/cardinfo_entity'
-    @cardinfo ||= CardinfoEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.cardinfo instead.
+  # Canonical facade: client.Cardinfo.list / client.Cardinfo.load({ "id" => ... })
   def Cardinfo(data = nil)
     require_relative 'entity/cardinfo_entity'
     CardinfoEntity.new(self, data)

@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## CardinfoEntity
 
 ```lua
-local cardinfo = client:cardinfo(nil)
+local cardinfo = client:Cardinfo(nil)
 ```
 
 ### Fields
@@ -130,7 +130,7 @@ local cardinfo = client:cardinfo(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:cardinfo():list()
+local results, err = client:Cardinfo():list()
 ```
 
 ### Common Methods

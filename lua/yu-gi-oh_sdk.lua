@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:cardinfo():list() / client:cardinfo():load({ id = ... })
-function YuGiOhSDK:cardinfo(data)
+-- Idiomatic facade: client:Cardinfo():list() / client:Cardinfo():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function YuGiOhSDK:Cardinfo(data)
   local EntityMod = require("entity.cardinfo_entity")
   if data == nil then
     if self._cardinfo == nil then
@@ -253,12 +254,6 @@ function YuGiOhSDK:cardinfo(data)
     end
     return self._cardinfo
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:cardinfo() instead.
-function YuGiOhSDK:Cardinfo(data)
-  local EntityMod = require("entity.cardinfo_entity")
   return EntityMod.new(self, data)
 end
 

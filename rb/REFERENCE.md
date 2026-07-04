@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## CardinfoEntity
 
 ```ruby
-cardinfo = client.cardinfo
+cardinfo = client.Cardinfo
 ```
 
 ### Fields
@@ -133,7 +133,7 @@ cardinfo = client.cardinfo
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.cardinfo.list(nil)
+results = client.Cardinfo.list(nil)
 ```
 
 ### Common Methods

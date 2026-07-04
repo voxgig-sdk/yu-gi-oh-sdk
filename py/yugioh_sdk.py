@@ -220,25 +220,15 @@ class YuGiOhSDK:
         }
 
 
-    @property
-    def cardinfo(self):
-        """Idiomatic facade: client.cardinfo.list() / client.cardinfo.load({"id": ...})."""
-        from entity.cardinfo_entity import CardinfoEntity
-        cached = getattr(self, "_cardinfo", None)
-        if cached is None:
-            cached = CardinfoEntity(self, None)
-            self._cardinfo = cached
-        return cached
-
-    def Cardinfo(self, data=None):
-        # Deprecated: use client.cardinfo instead.
+    def Cardinfo(self, data=None) -> "CardinfoEntity":
+        """Entity factory: client.Cardinfo().list({}) / client.Cardinfo().load({"id": ...})."""
         from entity.cardinfo_entity import CardinfoEntity
         return CardinfoEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "YuGiOhSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class YuGiOhSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.cardinfo_entity import CardinfoEntity

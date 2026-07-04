@@ -4,79 +4,84 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Cardinfo:
+class CardinfoRequired(TypedDict):
     desc: str
     frame_type: str
     id: int
     name: str
     type: str
-    archetype: Optional[str] = None
-    atk: Optional[int] = None
-    attribute: Optional[str] = None
-    banlist_info: Optional[dict] = None
-    beta_name: Optional[str] = None
-    card_image: Optional[list] = None
-    card_price: Optional[list] = None
-    card_set: Optional[list] = None
-    downvote: Optional[int] = None
-    format: Optional[list] = None
-    genesys_point: Optional[int] = None
-    has_effect: Optional[int] = None
-    konami_id: Optional[int] = None
-    level: Optional[int] = None
-    linkmarker: Optional[list] = None
-    linkval: Optional[int] = None
-    md_rarity: Optional[str] = None
-    ocg_date: Optional[str] = None
-    race: Optional[str] = None
-    scale: Optional[int] = None
-    tcg_date: Optional[str] = None
-    treated_a: Optional[str] = None
-    upvote: Optional[int] = None
-    view: Optional[int] = None
-    viewsweek: Optional[int] = None
-    ygoprodeck_url: Optional[str] = None
 
 
-@dataclass
-class CardinfoListMatch:
-    archetype: Optional[str] = None
-    atk: Optional[int] = None
-    attribute: Optional[str] = None
-    banlist_info: Optional[dict] = None
-    beta_name: Optional[str] = None
-    card_image: Optional[list] = None
-    card_price: Optional[list] = None
-    card_set: Optional[list] = None
-    desc: Optional[str] = None
-    downvote: Optional[int] = None
-    format: Optional[list] = None
-    frame_type: Optional[str] = None
-    genesys_point: Optional[int] = None
-    has_effect: Optional[int] = None
-    id: Optional[int] = None
-    konami_id: Optional[int] = None
-    level: Optional[int] = None
-    linkmarker: Optional[list] = None
-    linkval: Optional[int] = None
-    md_rarity: Optional[str] = None
-    name: Optional[str] = None
-    ocg_date: Optional[str] = None
-    race: Optional[str] = None
-    scale: Optional[int] = None
-    tcg_date: Optional[str] = None
-    treated_a: Optional[str] = None
-    type: Optional[str] = None
-    upvote: Optional[int] = None
-    view: Optional[int] = None
-    viewsweek: Optional[int] = None
-    ygoprodeck_url: Optional[str] = None
+class Cardinfo(CardinfoRequired, total=False):
+    archetype: str
+    atk: int
+    attribute: str
+    banlist_info: dict
+    beta_name: str
+    card_image: list
+    card_price: list
+    card_set: list
+    downvote: int
+    format: list
+    genesys_point: int
+    has_effect: int
+    konami_id: int
+    level: int
+    linkmarker: list
+    linkval: int
+    md_rarity: str
+    ocg_date: str
+    race: str
+    scale: int
+    tcg_date: str
+    treated_a: str
+    upvote: int
+    view: int
+    viewsweek: int
+    ygoprodeck_url: str
 
+
+class CardinfoListMatch(TypedDict, total=False):
+    archetype: str
+    atk: int
+    attribute: str
+    banlist_info: dict
+    beta_name: str
+    card_image: list
+    card_price: list
+    card_set: list
+    desc: str
+    downvote: int
+    format: list
+    frame_type: str
+    genesys_point: int
+    has_effect: int
+    id: int
+    konami_id: int
+    level: int
+    linkmarker: list
+    linkval: int
+    md_rarity: str
+    name: str
+    ocg_date: str
+    race: str
+    scale: int
+    tcg_date: str
+    treated_a: str
+    type: str
+    upvote: int
+    view: int
+    viewsweek: int
+    ygoprodeck_url: str

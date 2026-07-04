@@ -31,14 +31,16 @@ from yugioh_sdk import YuGiOhSDK
 client = YuGiOhSDK()
 ```
 
-### 2. List cardinfos
+### 2. List cardinfo records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.cardinfo.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    cardinfos = client.Cardinfo().list({})
+    for cardinfo in cardinfos:
+        print(cardinfo)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -86,8 +88,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = YuGiOhSDK.test()
 
-result = client.cardinfo.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+cardinfo = client.Cardinfo().load({"id": "test01"})
+# cardinfo contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -251,7 +254,7 @@ API path: `/cardinfo.php`
 
 ### Cardinfo
 
-Create an instance: `const cardinfo = client.cardinfo`
+Create an instance: `cardinfo = client.Cardinfo()`
 
 #### Operations
 
@@ -298,8 +301,8 @@ Create an instance: `const cardinfo = client.cardinfo`
 
 #### Example: List
 
-```ts
-const cardinfos = await client.cardinfo.list()
+```python
+cardinfos = client.Cardinfo().list({})
 ```
 
 
@@ -373,7 +376,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-cardinfo = client.cardinfo
+cardinfo = client.Cardinfo()
 cardinfo.load({"id": "example_id"})
 
 # cardinfo.data_get() now returns the loaded cardinfo data

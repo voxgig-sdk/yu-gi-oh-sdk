@@ -26,9 +26,11 @@ import { YuGiOhSDK } from '@voxgig-sdk/yu-gi-oh'
 
 const client = new YuGiOhSDK()
 
-// List all cardinfos
-const cardinfos = await client.cardinfo.list()
-console.log(cardinfos.data)
+// List all cardinfos (returns Cardinfo[])
+const cardinfos = await client.Cardinfo().list()
+for (const cardinfo of cardinfos) {
+  console.log(cardinfo)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -83,9 +85,10 @@ from yugioh_sdk import YuGiOhSDK
 
 client = YuGiOhSDK()
 
-# List all cardinfos
-cardinfos = client.cardinfo.list()
-print(cardinfos)
+# List all cardinfos (returns a list, raises on error)
+cardinfos = client.Cardinfo().list({})
+for cardinfo in cardinfos:
+    print(cardinfo)
 ```
 
 ### PHP
@@ -96,8 +99,8 @@ require_once 'yugioh_sdk.php';
 
 $client = new YuGiOhSDK();
 
-// List all cardinfos (throws on error)
-$cardinfos = $client->cardinfo()->list();
+// List all cardinfos (returns an array; throws on error)
+$cardinfos = $client->Cardinfo()->list();
 print_r($cardinfos);
 ```
 
@@ -120,8 +123,8 @@ require_relative "YuGiOh_sdk"
 
 client = YuGiOhSDK.new
 
-# List all cardinfos
-cardinfos = client.cardinfo.list
+# List all cardinfos (returns an Array; raises on error)
+cardinfos = client.Cardinfo.list
 puts cardinfos
 ```
 
@@ -133,7 +136,7 @@ local sdk = require("yu-gi-oh_sdk")
 local client = sdk.new()
 
 -- List all cardinfos
-local cardinfos, err = client:cardinfo():list()
+local cardinfos, err = client:Cardinfo():list()
 print(cardinfos)
 ```
 
@@ -146,22 +149,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = YuGiOhSDK.test()
-const result = await client.cardinfo.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const cardinfo = await client.Cardinfo().load({ id: 1 })
+// cardinfo is a bare Cardinfo populated with mock data
+console.log(cardinfo)
 ```
 
 ### Python
 
 ```python
 client = YuGiOhSDK.test()
-result = client.cardinfo.load({"id": "test01"})
+cardinfo = client.Cardinfo().load({"id": "test01"})
+print(cardinfo)
 ```
 
 ### PHP
 
 ```php
-$client = YuGiOhSDK::test();
-$result = $client->cardinfo()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = YuGiOhSDK::test([
+    "entity" => ["cardinfo" => ["test01" => ["id" => "test01"]]],
+]);
+$cardinfo = $client->Cardinfo()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -176,15 +184,18 @@ result, err := client.Cardinfo(nil).Load(
 ### Ruby
 
 ```ruby
-client = YuGiOhSDK.test
-result = client.cardinfo.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = YuGiOhSDK.test({
+  "entity" => { "cardinfo" => { "test01" => { "id" => "test01" } } },
+})
+cardinfo = client.Cardinfo.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:cardinfo():load({ id = "test01" })
+local result, err = client:Cardinfo():load({ id = "test01" })
 ```
 
 ## How it works
@@ -232,6 +243,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

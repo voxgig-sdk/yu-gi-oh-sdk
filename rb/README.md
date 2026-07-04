@@ -28,16 +28,14 @@ require_relative "YuGiOh_sdk"
 client = YuGiOhSDK.new
 ```
 
-### 2. List cardinfos
+### 2. List cardinfo records
 
 ```ruby
 begin
-  result = client.cardinfo.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of Cardinfo records — iterate directly.
+  cardinfos = client.Cardinfo.list
+  cardinfos.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -85,13 +83,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = YuGiOhSDK.test
+client = YuGiOhSDK.test({
+  "entity" => { "cardinfo" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.cardinfo.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+cardinfo = client.Cardinfo.load({ "id" => "test01" })
+puts cardinfo
 ```
 
 ### Use a custom fetch function
@@ -254,7 +256,7 @@ API path: `/cardinfo.php`
 
 ### Cardinfo
 
-Create an instance: `const cardinfo = client.cardinfo`
+Create an instance: `cardinfo = client.Cardinfo`
 
 #### Operations
 
@@ -301,8 +303,9 @@ Create an instance: `const cardinfo = client.cardinfo`
 
 #### Example: List
 
-```ts
-const cardinfos = await client.cardinfo.list()
+```ruby
+# list returns an Array of Cardinfo records (raises on error).
+cardinfos = client.Cardinfo.list
 ```
 
 
@@ -377,7 +380,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-cardinfo = client.cardinfo
+cardinfo = client.Cardinfo
 cardinfo.load({ "id" => "example_id" })
 
 # cardinfo.data_get now returns the loaded cardinfo data

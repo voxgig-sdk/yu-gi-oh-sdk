@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## CardinfoEntity
 
 ```php
-$cardinfo = $client->cardinfo();
+$cardinfo = $client->Cardinfo();
 ```
 
 ### Fields
@@ -132,7 +132,7 @@ $cardinfo = $client->cardinfo();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->cardinfo()->list([]);
+$results = $client->Cardinfo()->list([]);
 ```
 
 ### Common Methods

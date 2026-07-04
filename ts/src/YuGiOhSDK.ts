@@ -204,14 +204,7 @@ class YuGiOhSDK {
 
 
 
-  _cardinfo?: CardinfoEntity
-
-  // Idiomatic facade: `client.cardinfo.list()` / `client.cardinfo.load({ id })`.
-  get cardinfo(): CardinfoEntity {
-    return (this._cardinfo ??= new CardinfoEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.cardinfo` instead. */
+  // Entity access: `client.Cardinfo().list()` / `client.Cardinfo().load({ id })`.
   Cardinfo(data?: any) {
     const self = this
     return new CardinfoEntity(self,data)
