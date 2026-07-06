@@ -141,7 +141,7 @@ Cardinfo = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Cardinfo#list (any subset of Cardinfo fields).
+# Request payload for Cardinfo#list.
 #
 # @!attribute [rw] archetype
 #   @return [String, nil]

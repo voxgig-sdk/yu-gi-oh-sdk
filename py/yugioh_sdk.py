@@ -221,7 +221,7 @@ class YuGiOhSDK:
 
 
     def Cardinfo(self, data=None) -> "CardinfoEntity":
-        """Entity factory: client.Cardinfo().list({}) / client.Cardinfo().load({"id": ...})."""
+        """Entity factory: client.Cardinfo().list() / client.Cardinfo().load({"id": ...})."""
         from entity.cardinfo_entity import CardinfoEntity
         return CardinfoEntity(self, data)
 

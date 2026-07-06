@@ -8,7 +8,7 @@ Complete API reference for the YuGiOh PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/yu-gi-oh_sdk.php';
+require_once __DIR__ . '/yugioh_sdk.php';
 
 $client = new YuGiOhSDK($options);
 ```
@@ -45,11 +45,11 @@ $client = YuGiOhSDK::test();
 
 Create a new `CardinfoEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): YuGiOhUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,64 +92,64 @@ $cardinfo = $client->Cardinfo();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `archetype` | ``$STRING`` | No |  |
-| `atk` | ``$INTEGER`` | No |  |
-| `attribute` | ``$STRING`` | No |  |
-| `banlist_info` | ``$OBJECT`` | No |  |
-| `beta_name` | ``$STRING`` | No |  |
-| `card_image` | ``$ARRAY`` | No |  |
-| `card_price` | ``$ARRAY`` | No |  |
-| `card_set` | ``$ARRAY`` | No |  |
-| `def` | ``$INTEGER`` | No |  |
-| `desc` | ``$STRING`` | Yes |  |
-| `downvote` | ``$INTEGER`` | No |  |
-| `format` | ``$ARRAY`` | No |  |
-| `frame_type` | ``$STRING`` | Yes |  |
-| `genesys_point` | ``$INTEGER`` | No |  |
-| `has_effect` | ``$INTEGER`` | No |  |
-| `id` | ``$INTEGER`` | Yes |  |
-| `konami_id` | ``$INTEGER`` | No |  |
-| `level` | ``$INTEGER`` | No |  |
-| `linkmarker` | ``$ARRAY`` | No |  |
-| `linkval` | ``$INTEGER`` | No |  |
-| `md_rarity` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | Yes |  |
-| `ocg_date` | ``$STRING`` | No |  |
-| `race` | ``$STRING`` | No |  |
-| `scale` | ``$INTEGER`` | No |  |
-| `tcg_date` | ``$STRING`` | No |  |
-| `treated_a` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | Yes |  |
-| `upvote` | ``$INTEGER`` | No |  |
-| `view` | ``$INTEGER`` | No |  |
-| `viewsweek` | ``$INTEGER`` | No |  |
-| `ygoprodeck_url` | ``$STRING`` | No |  |
+| `archetype` | `string` | No |  |
+| `atk` | `int` | No |  |
+| `attribute` | `string` | No |  |
+| `banlist_info` | `array` | No |  |
+| `beta_name` | `string` | No |  |
+| `card_image` | `array` | No |  |
+| `card_price` | `array` | No |  |
+| `card_set` | `array` | No |  |
+| `def` | `int` | No |  |
+| `desc` | `string` | Yes |  |
+| `downvote` | `int` | No |  |
+| `format` | `array` | No |  |
+| `frame_type` | `string` | Yes |  |
+| `genesys_point` | `int` | No |  |
+| `has_effect` | `int` | No |  |
+| `id` | `int` | Yes |  |
+| `konami_id` | `int` | No |  |
+| `level` | `int` | No |  |
+| `linkmarker` | `array` | No |  |
+| `linkval` | `int` | No |  |
+| `md_rarity` | `string` | No |  |
+| `name` | `string` | Yes |  |
+| `ocg_date` | `string` | No |  |
+| `race` | `string` | No |  |
+| `scale` | `int` | No |  |
+| `tcg_date` | `string` | No |  |
+| `treated_a` | `string` | No |  |
+| `type` | `string` | Yes |  |
+| `upvote` | `int` | No |  |
+| `view` | `int` | No |  |
+| `viewsweek` | `int` | No |  |
+| `ygoprodeck_url` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Cardinfo()->list([]);
+$results = $client->Cardinfo()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -158,7 +158,7 @@ Set the entity match criteria.
 Create a new `CardinfoEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

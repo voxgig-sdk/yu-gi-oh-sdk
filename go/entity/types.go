@@ -44,8 +44,7 @@ type Cardinfo struct {
 	YgoprodeckUrl *string `json:"ygoprodeck_url,omitempty"`
 }
 
-// CardinfoListMatch mirrors the cardinfo fields as an all-optional match
-// filter (Go analog of Partial<Cardinfo>).
+// CardinfoListMatch is the typed request payload for Cardinfo.ListTyped.
 type CardinfoListMatch struct {
 	Archetype *string `json:"archetype,omitempty"`
 	Atk *int `json:"atk,omitempty"`

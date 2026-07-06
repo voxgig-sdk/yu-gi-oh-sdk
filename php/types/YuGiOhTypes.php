@@ -49,7 +49,7 @@ class Cardinfo
     public ?string $ygoprodeck_url = null;
 }
 
-/** Match filter for Cardinfo#list (any subset of Cardinfo fields). */
+/** Request payload for Cardinfo#list. */
 class CardinfoListMatch
 {
     public ?string $archetype = null;

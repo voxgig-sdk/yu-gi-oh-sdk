@@ -116,38 +116,38 @@ const cardinfo = client.Cardinfo()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `archetype` | ``$STRING`` | No |  |
-| `atk` | ``$INTEGER`` | No |  |
-| `attribute` | ``$STRING`` | No |  |
-| `banlist_info` | ``$OBJECT`` | No |  |
-| `beta_name` | ``$STRING`` | No |  |
-| `card_image` | ``$ARRAY`` | No |  |
-| `card_price` | ``$ARRAY`` | No |  |
-| `card_set` | ``$ARRAY`` | No |  |
-| `def` | ``$INTEGER`` | No |  |
-| `desc` | ``$STRING`` | Yes |  |
-| `downvote` | ``$INTEGER`` | No |  |
-| `format` | ``$ARRAY`` | No |  |
-| `frame_type` | ``$STRING`` | Yes |  |
-| `genesys_point` | ``$INTEGER`` | No |  |
-| `has_effect` | ``$INTEGER`` | No |  |
-| `id` | ``$INTEGER`` | Yes |  |
-| `konami_id` | ``$INTEGER`` | No |  |
-| `level` | ``$INTEGER`` | No |  |
-| `linkmarker` | ``$ARRAY`` | No |  |
-| `linkval` | ``$INTEGER`` | No |  |
-| `md_rarity` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | Yes |  |
-| `ocg_date` | ``$STRING`` | No |  |
-| `race` | ``$STRING`` | No |  |
-| `scale` | ``$INTEGER`` | No |  |
-| `tcg_date` | ``$STRING`` | No |  |
-| `treated_a` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | Yes |  |
-| `upvote` | ``$INTEGER`` | No |  |
-| `view` | ``$INTEGER`` | No |  |
-| `viewsweek` | ``$INTEGER`` | No |  |
-| `ygoprodeck_url` | ``$STRING`` | No |  |
+| `archetype` | `string` | No |  |
+| `atk` | `number` | No |  |
+| `attribute` | `string` | No |  |
+| `banlist_info` | `Record<string, any>` | No |  |
+| `beta_name` | `string` | No |  |
+| `card_image` | `any[]` | No |  |
+| `card_price` | `any[]` | No |  |
+| `card_set` | `any[]` | No |  |
+| `def` | `number` | No |  |
+| `desc` | `string` | Yes |  |
+| `downvote` | `number` | No |  |
+| `format` | `any[]` | No |  |
+| `frame_type` | `string` | Yes |  |
+| `genesys_point` | `number` | No |  |
+| `has_effect` | `number` | No |  |
+| `id` | `number` | Yes |  |
+| `konami_id` | `number` | No |  |
+| `level` | `number` | No |  |
+| `linkmarker` | `any[]` | No |  |
+| `linkval` | `number` | No |  |
+| `md_rarity` | `string` | No |  |
+| `name` | `string` | Yes |  |
+| `ocg_date` | `string` | No |  |
+| `race` | `string` | No |  |
+| `scale` | `number` | No |  |
+| `tcg_date` | `string` | No |  |
+| `treated_a` | `string` | No |  |
+| `type` | `string` | Yes |  |
+| `upvote` | `number` | No |  |
+| `view` | `number` | No |  |
+| `viewsweek` | `number` | No |  |
+| `ygoprodeck_url` | `string` | No |  |
 
 ### Operations
 

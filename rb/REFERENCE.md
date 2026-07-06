@@ -8,7 +8,7 @@ Complete API reference for the YuGiOh Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'yu-gi-oh_sdk'
+require_relative 'YuGiOh_sdk'
 
 client = YuGiOhSDK.new(options)
 ```
@@ -93,47 +93,47 @@ cardinfo = client.Cardinfo
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `archetype` | ``$STRING`` | No |  |
-| `atk` | ``$INTEGER`` | No |  |
-| `attribute` | ``$STRING`` | No |  |
-| `banlist_info` | ``$OBJECT`` | No |  |
-| `beta_name` | ``$STRING`` | No |  |
-| `card_image` | ``$ARRAY`` | No |  |
-| `card_price` | ``$ARRAY`` | No |  |
-| `card_set` | ``$ARRAY`` | No |  |
-| `def` | ``$INTEGER`` | No |  |
-| `desc` | ``$STRING`` | Yes |  |
-| `downvote` | ``$INTEGER`` | No |  |
-| `format` | ``$ARRAY`` | No |  |
-| `frame_type` | ``$STRING`` | Yes |  |
-| `genesys_point` | ``$INTEGER`` | No |  |
-| `has_effect` | ``$INTEGER`` | No |  |
-| `id` | ``$INTEGER`` | Yes |  |
-| `konami_id` | ``$INTEGER`` | No |  |
-| `level` | ``$INTEGER`` | No |  |
-| `linkmarker` | ``$ARRAY`` | No |  |
-| `linkval` | ``$INTEGER`` | No |  |
-| `md_rarity` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | Yes |  |
-| `ocg_date` | ``$STRING`` | No |  |
-| `race` | ``$STRING`` | No |  |
-| `scale` | ``$INTEGER`` | No |  |
-| `tcg_date` | ``$STRING`` | No |  |
-| `treated_a` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | Yes |  |
-| `upvote` | ``$INTEGER`` | No |  |
-| `view` | ``$INTEGER`` | No |  |
-| `viewsweek` | ``$INTEGER`` | No |  |
-| `ygoprodeck_url` | ``$STRING`` | No |  |
+| `archetype` | `String` | No |  |
+| `atk` | `Integer` | No |  |
+| `attribute` | `String` | No |  |
+| `banlist_info` | `Hash` | No |  |
+| `beta_name` | `String` | No |  |
+| `card_image` | `Array` | No |  |
+| `card_price` | `Array` | No |  |
+| `card_set` | `Array` | No |  |
+| `def` | `Integer` | No |  |
+| `desc` | `String` | Yes |  |
+| `downvote` | `Integer` | No |  |
+| `format` | `Array` | No |  |
+| `frame_type` | `String` | Yes |  |
+| `genesys_point` | `Integer` | No |  |
+| `has_effect` | `Integer` | No |  |
+| `id` | `Integer` | Yes |  |
+| `konami_id` | `Integer` | No |  |
+| `level` | `Integer` | No |  |
+| `linkmarker` | `Array` | No |  |
+| `linkval` | `Integer` | No |  |
+| `md_rarity` | `String` | No |  |
+| `name` | `String` | Yes |  |
+| `ocg_date` | `String` | No |  |
+| `race` | `String` | No |  |
+| `scale` | `Integer` | No |  |
+| `tcg_date` | `String` | No |  |
+| `treated_a` | `String` | No |  |
+| `type` | `String` | Yes |  |
+| `upvote` | `Integer` | No |  |
+| `view` | `Integer` | No |  |
+| `viewsweek` | `Integer` | No |  |
+| `ygoprodeck_url` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Cardinfo.list(nil)
+results = client.Cardinfo.list
 ```
 
 ### Common Methods

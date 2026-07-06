@@ -8,7 +8,7 @@ Complete API reference for the YuGiOh Python SDK.
 ### Constructor
 
 ```python
-from yu-gi-oh_sdk import YuGiOhSDK
+from yugioh_sdk import YuGiOhSDK
 
 client = YuGiOhSDK(options)
 ```
@@ -87,47 +87,47 @@ cardinfo = client.Cardinfo()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `archetype` | ``$STRING`` | No |  |
-| `atk` | ``$INTEGER`` | No |  |
-| `attribute` | ``$STRING`` | No |  |
-| `banlist_info` | ``$OBJECT`` | No |  |
-| `beta_name` | ``$STRING`` | No |  |
-| `card_image` | ``$ARRAY`` | No |  |
-| `card_price` | ``$ARRAY`` | No |  |
-| `card_set` | ``$ARRAY`` | No |  |
-| `def` | ``$INTEGER`` | No |  |
-| `desc` | ``$STRING`` | Yes |  |
-| `downvote` | ``$INTEGER`` | No |  |
-| `format` | ``$ARRAY`` | No |  |
-| `frame_type` | ``$STRING`` | Yes |  |
-| `genesys_point` | ``$INTEGER`` | No |  |
-| `has_effect` | ``$INTEGER`` | No |  |
-| `id` | ``$INTEGER`` | Yes |  |
-| `konami_id` | ``$INTEGER`` | No |  |
-| `level` | ``$INTEGER`` | No |  |
-| `linkmarker` | ``$ARRAY`` | No |  |
-| `linkval` | ``$INTEGER`` | No |  |
-| `md_rarity` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | Yes |  |
-| `ocg_date` | ``$STRING`` | No |  |
-| `race` | ``$STRING`` | No |  |
-| `scale` | ``$INTEGER`` | No |  |
-| `tcg_date` | ``$STRING`` | No |  |
-| `treated_a` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | Yes |  |
-| `upvote` | ``$INTEGER`` | No |  |
-| `view` | ``$INTEGER`` | No |  |
-| `viewsweek` | ``$INTEGER`` | No |  |
-| `ygoprodeck_url` | ``$STRING`` | No |  |
+| `archetype` | `str` | No |  |
+| `atk` | `int` | No |  |
+| `attribute` | `str` | No |  |
+| `banlist_info` | `dict` | No |  |
+| `beta_name` | `str` | No |  |
+| `card_image` | `list` | No |  |
+| `card_price` | `list` | No |  |
+| `card_set` | `list` | No |  |
+| `def` | `int` | No |  |
+| `desc` | `str` | Yes |  |
+| `downvote` | `int` | No |  |
+| `format` | `list` | No |  |
+| `frame_type` | `str` | Yes |  |
+| `genesys_point` | `int` | No |  |
+| `has_effect` | `int` | No |  |
+| `id` | `int` | Yes |  |
+| `konami_id` | `int` | No |  |
+| `level` | `int` | No |  |
+| `linkmarker` | `list` | No |  |
+| `linkval` | `int` | No |  |
+| `md_rarity` | `str` | No |  |
+| `name` | `str` | Yes |  |
+| `ocg_date` | `str` | No |  |
+| `race` | `str` | No |  |
+| `scale` | `int` | No |  |
+| `tcg_date` | `str` | No |  |
+| `treated_a` | `str` | No |  |
+| `type` | `str` | Yes |  |
+| `upvote` | `int` | No |  |
+| `view` | `int` | No |  |
+| `viewsweek` | `int` | No |  |
+| `ygoprodeck_url` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Cardinfo().list({})
+results = client.Cardinfo().list()
 for cardinfo in results:
     print(cardinfo)
 ```
