@@ -16,10 +16,10 @@ main: {
           url: "https://db.ygoprodeck.com/api/v7"
         }
       ]
+      summary: "API providing data on Yu-Gi-Oh!"
       termsOfService: "https://ygoprodeck.com/api-guide/"
       title: "Yu-Gi-Oh! API"
       version: "7.0.0"
+      website: "https://ygoprodeck.com/api-guide/"
     }
   }
-}
-

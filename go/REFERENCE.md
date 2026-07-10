@@ -91,6 +91,7 @@ same parameters as `Direct()`.
 
 ```go
 cardinfo := client.Cardinfo(nil)
+fmt.Println(cardinfo.GetName()) // "cardinfo"
 ```
 
 ### Fields
@@ -138,6 +139,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Cardinfo(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods
