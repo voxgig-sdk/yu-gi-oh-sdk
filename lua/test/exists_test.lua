@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- YuGiOh SDK exists test
 
 local sdk = require("yu-gi-oh_sdk")
 
