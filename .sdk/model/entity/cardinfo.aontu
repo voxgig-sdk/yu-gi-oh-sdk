@@ -31,17 +31,17 @@ main: kit: entity: cardinfo: {
       type: "`$STRING`"
     }
     {
-      name: "card_image"
+      name: "card_images"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "card_price"
+      name: "card_prices"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "card_set"
+      name: "card_sets"
       req: false
       type: "`$ARRAY`"
     }
@@ -56,22 +56,22 @@ main: kit: entity: cardinfo: {
       type: "`$STRING`"
     }
     {
-      name: "downvote"
+      name: "downvotes"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "format"
+      name: "formats"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "frame_type"
+      name: "frameType"
       req: true
       type: "`$STRING`"
     }
     {
-      name: "genesys_point"
+      name: "genesys_points"
       req: false
       type: "`$INTEGER`"
     }
@@ -96,7 +96,7 @@ main: kit: entity: cardinfo: {
       type: "`$INTEGER`"
     }
     {
-      name: "linkmarker"
+      name: "linkmarkers"
       req: false
       type: "`$ARRAY`"
     }
@@ -136,7 +136,7 @@ main: kit: entity: cardinfo: {
       type: "`$STRING`"
     }
     {
-      name: "treated_a"
+      name: "treated_as"
       req: false
       type: "`$STRING`"
     }
@@ -146,12 +146,12 @@ main: kit: entity: cardinfo: {
       type: "`$STRING`"
     }
     {
-      name: "upvote"
+      name: "upvotes"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "view"
+      name: "views"
       req: false
       type: "`$INTEGER`"
     }
@@ -411,7 +411,7 @@ main: kit: entity: cardinfo: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

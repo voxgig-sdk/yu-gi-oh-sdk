@@ -218,9 +218,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local cardinfo, err = client:Cardinfo():load()
+    local cardinfo, err = client:Cardinfo():list()
     if err then error(err) end
-    -- cardinfo is the loaded record
+    -- cardinfo is the record list
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -236,20 +236,20 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `attribute` |  |
 | `banlist_info` |  |
 | `beta_name` |  |
-| `card_image` |  |
-| `card_price` |  |
-| `card_set` |  |
+| `card_images` |  |
+| `card_prices` |  |
+| `card_sets` |  |
 | `def` |  |
 | `desc` |  |
-| `downvote` |  |
-| `format` |  |
-| `frame_type` |  |
-| `genesys_point` |  |
+| `downvotes` |  |
+| `formats` |  |
+| `frameType` |  |
+| `genesys_points` |  |
 | `has_effect` |  |
 | `id` |  |
 | `konami_id` |  |
 | `level` |  |
-| `linkmarker` |  |
+| `linkmarkers` |  |
 | `linkval` |  |
 | `md_rarity` |  |
 | `name` |  |
@@ -257,10 +257,10 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `race` |  |
 | `scale` |  |
 | `tcg_date` |  |
-| `treated_a` |  |
+| `treated_as` |  |
 | `type` |  |
-| `upvote` |  |
-| `view` |  |
+| `upvotes` |  |
+| `views` |  |
 | `viewsweek` |  |
 | `ygoprodeck_url` |  |
 
@@ -292,20 +292,20 @@ Create an instance: `local cardinfo = client:Cardinfo(nil)`
 | `attribute` | `string` |  |
 | `banlist_info` | `table` |  |
 | `beta_name` | `string` |  |
-| `card_image` | `table` |  |
-| `card_price` | `table` |  |
-| `card_set` | `table` |  |
+| `card_images` | `table` |  |
+| `card_prices` | `table` |  |
+| `card_sets` | `table` |  |
 | `def` | `number` |  |
 | `desc` | `string` |  |
-| `downvote` | `number` |  |
-| `format` | `table` |  |
-| `frame_type` | `string` |  |
-| `genesys_point` | `number` |  |
+| `downvotes` | `number` |  |
+| `formats` | `table` |  |
+| `frameType` | `string` |  |
+| `genesys_points` | `number` |  |
 | `has_effect` | `number` |  |
 | `id` | `number` |  |
 | `konami_id` | `number` |  |
 | `level` | `number` |  |
-| `linkmarker` | `table` |  |
+| `linkmarkers` | `table` |  |
 | `linkval` | `number` |  |
 | `md_rarity` | `string` |  |
 | `name` | `string` |  |
@@ -313,10 +313,10 @@ Create an instance: `local cardinfo = client:Cardinfo(nil)`
 | `race` | `string` |  |
 | `scale` | `number` |  |
 | `tcg_date` | `string` |  |
-| `treated_a` | `string` |  |
+| `treated_as` | `string` |  |
 | `type` | `string` |  |
-| `upvote` | `number` |  |
-| `view` | `number` |  |
+| `upvotes` | `number` |  |
+| `views` | `number` |  |
 | `viewsweek` | `number` |  |
 | `ygoprodeck_url` | `string` |  |
 

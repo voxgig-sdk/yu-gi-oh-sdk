@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from yugioh_sdk.utility.voxgig_struct import voxgig_struct as vs
 from yugioh_sdk import YuGiOhSDK
-from core import helpers
+from yugioh_sdk.core import helpers
 from test import runner
 
 
@@ -58,11 +58,11 @@ def _cardinfo_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "YUGIOH_TEST_CARDINFO_ENTID": {},
-        "YUGIOH_TEST_LIVE": "FALSE",
+        "YU_GI_OH_TEST_CARDINFO_ENTID": {},
+        "YU_GI_OH_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("YUGIOH_TEST_LIVE") == "TRUE"
+    live = env.get("YU_GI_OH_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

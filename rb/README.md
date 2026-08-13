@@ -119,7 +119,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = YuGiOhSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 cardinfo = client.Cardinfo.list()
 puts cardinfo
 ```
@@ -241,20 +242,20 @@ returns a result `Hash` with these keys:
 | `attribute` |  |
 | `banlist_info` |  |
 | `beta_name` |  |
-| `card_image` |  |
-| `card_price` |  |
-| `card_set` |  |
+| `card_images` |  |
+| `card_prices` |  |
+| `card_sets` |  |
 | `def` |  |
 | `desc` |  |
-| `downvote` |  |
-| `format` |  |
-| `frame_type` |  |
-| `genesys_point` |  |
+| `downvotes` |  |
+| `formats` |  |
+| `frameType` |  |
+| `genesys_points` |  |
 | `has_effect` |  |
 | `id` |  |
 | `konami_id` |  |
 | `level` |  |
-| `linkmarker` |  |
+| `linkmarkers` |  |
 | `linkval` |  |
 | `md_rarity` |  |
 | `name` |  |
@@ -262,10 +263,10 @@ returns a result `Hash` with these keys:
 | `race` |  |
 | `scale` |  |
 | `tcg_date` |  |
-| `treated_a` |  |
+| `treated_as` |  |
 | `type` |  |
-| `upvote` |  |
-| `view` |  |
+| `upvotes` |  |
+| `views` |  |
 | `viewsweek` |  |
 | `ygoprodeck_url` |  |
 
@@ -297,20 +298,20 @@ Create an instance: `cardinfo = client.Cardinfo`
 | `attribute` | `String` |  |
 | `banlist_info` | `Hash` |  |
 | `beta_name` | `String` |  |
-| `card_image` | `Array` |  |
-| `card_price` | `Array` |  |
-| `card_set` | `Array` |  |
+| `card_images` | `Array` |  |
+| `card_prices` | `Array` |  |
+| `card_sets` | `Array` |  |
 | `def` | `Integer` |  |
 | `desc` | `String` |  |
-| `downvote` | `Integer` |  |
-| `format` | `Array` |  |
-| `frame_type` | `String` |  |
-| `genesys_point` | `Integer` |  |
+| `downvotes` | `Integer` |  |
+| `formats` | `Array` |  |
+| `frameType` | `String` |  |
+| `genesys_points` | `Integer` |  |
 | `has_effect` | `Integer` |  |
 | `id` | `Integer` |  |
 | `konami_id` | `Integer` |  |
 | `level` | `Integer` |  |
-| `linkmarker` | `Array` |  |
+| `linkmarkers` | `Array` |  |
 | `linkval` | `Integer` |  |
 | `md_rarity` | `String` |  |
 | `name` | `String` |  |
@@ -318,10 +319,10 @@ Create an instance: `cardinfo = client.Cardinfo`
 | `race` | `String` |  |
 | `scale` | `Integer` |  |
 | `tcg_date` | `String` |  |
-| `treated_a` | `String` |  |
+| `treated_as` | `String` |  |
 | `type` | `String` |  |
-| `upvote` | `Integer` |  |
-| `view` | `Integer` |  |
+| `upvotes` | `Integer` |  |
+| `views` | `Integer` |  |
 | `viewsweek` | `Integer` |  |
 | `ygoprodeck_url` | `String` |  |
 

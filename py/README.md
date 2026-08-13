@@ -124,7 +124,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = YuGiOhSDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 cardinfo = client.Cardinfo().list()
 # cardinfo contains the mock response record
 ```
@@ -220,7 +221,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -247,20 +248,20 @@ On error, `ok` is `False` and `err` contains the error value.
 | `attribute` |  |
 | `banlist_info` |  |
 | `beta_name` |  |
-| `card_image` |  |
-| `card_price` |  |
-| `card_set` |  |
+| `card_images` |  |
+| `card_prices` |  |
+| `card_sets` |  |
 | `def` |  |
 | `desc` |  |
-| `downvote` |  |
-| `format` |  |
-| `frame_type` |  |
-| `genesys_point` |  |
+| `downvotes` |  |
+| `formats` |  |
+| `frameType` |  |
+| `genesys_points` |  |
 | `has_effect` |  |
 | `id` |  |
 | `konami_id` |  |
 | `level` |  |
-| `linkmarker` |  |
+| `linkmarkers` |  |
 | `linkval` |  |
 | `md_rarity` |  |
 | `name` |  |
@@ -268,10 +269,10 @@ On error, `ok` is `False` and `err` contains the error value.
 | `race` |  |
 | `scale` |  |
 | `tcg_date` |  |
-| `treated_a` |  |
+| `treated_as` |  |
 | `type` |  |
-| `upvote` |  |
-| `view` |  |
+| `upvotes` |  |
+| `views` |  |
 | `viewsweek` |  |
 | `ygoprodeck_url` |  |
 
@@ -303,20 +304,20 @@ Create an instance: `cardinfo = client.Cardinfo()`
 | `attribute` | `str` |  |
 | `banlist_info` | `dict` |  |
 | `beta_name` | `str` |  |
-| `card_image` | `list` |  |
-| `card_price` | `list` |  |
-| `card_set` | `list` |  |
+| `card_images` | `list` |  |
+| `card_prices` | `list` |  |
+| `card_sets` | `list` |  |
 | `def` | `int` |  |
 | `desc` | `str` |  |
-| `downvote` | `int` |  |
-| `format` | `list` |  |
-| `frame_type` | `str` |  |
-| `genesys_point` | `int` |  |
+| `downvotes` | `int` |  |
+| `formats` | `list` |  |
+| `frameType` | `str` |  |
+| `genesys_points` | `int` |  |
 | `has_effect` | `int` |  |
 | `id` | `int` |  |
 | `konami_id` | `int` |  |
 | `level` | `int` |  |
-| `linkmarker` | `list` |  |
+| `linkmarkers` | `list` |  |
 | `linkval` | `int` |  |
 | `md_rarity` | `str` |  |
 | `name` | `str` |  |
@@ -324,10 +325,10 @@ Create an instance: `cardinfo = client.Cardinfo()`
 | `race` | `str` |  |
 | `scale` | `int` |  |
 | `tcg_date` | `str` |  |
-| `treated_a` | `str` |  |
+| `treated_as` | `str` |  |
 | `type` | `str` |  |
-| `upvote` | `int` |  |
-| `view` | `int` |  |
+| `upvotes` | `int` |  |
+| `views` | `int` |  |
 | `viewsweek` | `int` |  |
 | `ygoprodeck_url` | `str` |  |
 

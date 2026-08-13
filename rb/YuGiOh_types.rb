@@ -25,13 +25,13 @@
 # @!attribute [rw] beta_name
 #   @return [String, nil]
 #
-# @!attribute [rw] card_image
+# @!attribute [rw] card_images
 #   @return [Array, nil]
 #
-# @!attribute [rw] card_price
+# @!attribute [rw] card_prices
 #   @return [Array, nil]
 #
-# @!attribute [rw] card_set
+# @!attribute [rw] card_sets
 #   @return [Array, nil]
 #
 # @!attribute [rw] def
@@ -40,16 +40,16 @@
 # @!attribute [rw] desc
 #   @return [String]
 #
-# @!attribute [rw] downvote
+# @!attribute [rw] downvotes
 #   @return [Integer, nil]
 #
-# @!attribute [rw] format
+# @!attribute [rw] formats
 #   @return [Array, nil]
 #
-# @!attribute [rw] frame_type
+# @!attribute [rw] frameType
 #   @return [String]
 #
-# @!attribute [rw] genesys_point
+# @!attribute [rw] genesys_points
 #   @return [Integer, nil]
 #
 # @!attribute [rw] has_effect
@@ -64,7 +64,7 @@
 # @!attribute [rw] level
 #   @return [Integer, nil]
 #
-# @!attribute [rw] linkmarker
+# @!attribute [rw] linkmarkers
 #   @return [Array, nil]
 #
 # @!attribute [rw] linkval
@@ -88,16 +88,16 @@
 # @!attribute [rw] tcg_date
 #   @return [String, nil]
 #
-# @!attribute [rw] treated_a
+# @!attribute [rw] treated_as
 #   @return [String, nil]
 #
 # @!attribute [rw] type
 #   @return [String]
 #
-# @!attribute [rw] upvote
+# @!attribute [rw] upvotes
 #   @return [Integer, nil]
 #
-# @!attribute [rw] view
+# @!attribute [rw] views
 #   @return [Integer, nil]
 #
 # @!attribute [rw] viewsweek
@@ -111,20 +111,20 @@ Cardinfo = Struct.new(
   :attribute,
   :banlist_info,
   :beta_name,
-  :card_image,
-  :card_price,
-  :card_set,
+  :card_images,
+  :card_prices,
+  :card_sets,
   :def,
   :desc,
-  :downvote,
-  :format,
-  :frame_type,
-  :genesys_point,
+  :downvotes,
+  :formats,
+  :frameType,
+  :genesys_points,
   :has_effect,
   :id,
   :konami_id,
   :level,
-  :linkmarker,
+  :linkmarkers,
   :linkval,
   :md_rarity,
   :name,
@@ -132,10 +132,10 @@ Cardinfo = Struct.new(
   :race,
   :scale,
   :tcg_date,
-  :treated_a,
+  :treated_as,
   :type,
-  :upvote,
-  :view,
+  :upvotes,
+  :views,
   :viewsweek,
   :ygoprodeck_url,
   keyword_init: true
@@ -158,13 +158,13 @@ Cardinfo = Struct.new(
 # @!attribute [rw] beta_name
 #   @return [String, nil]
 #
-# @!attribute [rw] card_image
+# @!attribute [rw] card_images
 #   @return [Array, nil]
 #
-# @!attribute [rw] card_price
+# @!attribute [rw] card_prices
 #   @return [Array, nil]
 #
-# @!attribute [rw] card_set
+# @!attribute [rw] card_sets
 #   @return [Array, nil]
 #
 # @!attribute [rw] def
@@ -173,16 +173,16 @@ Cardinfo = Struct.new(
 # @!attribute [rw] desc
 #   @return [String, nil]
 #
-# @!attribute [rw] downvote
+# @!attribute [rw] downvotes
 #   @return [Integer, nil]
 #
-# @!attribute [rw] format
+# @!attribute [rw] formats
 #   @return [Array, nil]
 #
-# @!attribute [rw] frame_type
+# @!attribute [rw] frameType
 #   @return [String, nil]
 #
-# @!attribute [rw] genesys_point
+# @!attribute [rw] genesys_points
 #   @return [Integer, nil]
 #
 # @!attribute [rw] has_effect
@@ -197,7 +197,7 @@ Cardinfo = Struct.new(
 # @!attribute [rw] level
 #   @return [Integer, nil]
 #
-# @!attribute [rw] linkmarker
+# @!attribute [rw] linkmarkers
 #   @return [Array, nil]
 #
 # @!attribute [rw] linkval
@@ -221,16 +221,16 @@ Cardinfo = Struct.new(
 # @!attribute [rw] tcg_date
 #   @return [String, nil]
 #
-# @!attribute [rw] treated_a
+# @!attribute [rw] treated_as
 #   @return [String, nil]
 #
 # @!attribute [rw] type
 #   @return [String, nil]
 #
-# @!attribute [rw] upvote
+# @!attribute [rw] upvotes
 #   @return [Integer, nil]
 #
-# @!attribute [rw] view
+# @!attribute [rw] views
 #   @return [Integer, nil]
 #
 # @!attribute [rw] viewsweek
@@ -244,20 +244,20 @@ CardinfoListMatch = Struct.new(
   :attribute,
   :banlist_info,
   :beta_name,
-  :card_image,
-  :card_price,
-  :card_set,
+  :card_images,
+  :card_prices,
+  :card_sets,
   :def,
   :desc,
-  :downvote,
-  :format,
-  :frame_type,
-  :genesys_point,
+  :downvotes,
+  :formats,
+  :frameType,
+  :genesys_points,
   :has_effect,
   :id,
   :konami_id,
   :level,
-  :linkmarker,
+  :linkmarkers,
   :linkval,
   :md_rarity,
   :name,
@@ -265,10 +265,10 @@ CardinfoListMatch = Struct.new(
   :race,
   :scale,
   :tcg_date,
-  :treated_a,
+  :treated_as,
   :type,
-  :upvote,
-  :view,
+  :upvotes,
+  :views,
   :viewsweek,
   :ygoprodeck_url,
   keyword_init: true

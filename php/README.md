@@ -125,7 +125,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = YuGiOhSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $cardinfo = $client->Cardinfo()->list();
 print_r($cardinfo);
 ```
@@ -224,7 +225,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -251,20 +252,20 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `attribute` |  |
 | `banlist_info` |  |
 | `beta_name` |  |
-| `card_image` |  |
-| `card_price` |  |
-| `card_set` |  |
+| `card_images` |  |
+| `card_prices` |  |
+| `card_sets` |  |
 | `def` |  |
 | `desc` |  |
-| `downvote` |  |
-| `format` |  |
-| `frame_type` |  |
-| `genesys_point` |  |
+| `downvotes` |  |
+| `formats` |  |
+| `frameType` |  |
+| `genesys_points` |  |
 | `has_effect` |  |
 | `id` |  |
 | `konami_id` |  |
 | `level` |  |
-| `linkmarker` |  |
+| `linkmarkers` |  |
 | `linkval` |  |
 | `md_rarity` |  |
 | `name` |  |
@@ -272,10 +273,10 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `race` |  |
 | `scale` |  |
 | `tcg_date` |  |
-| `treated_a` |  |
+| `treated_as` |  |
 | `type` |  |
-| `upvote` |  |
-| `view` |  |
+| `upvotes` |  |
+| `views` |  |
 | `viewsweek` |  |
 | `ygoprodeck_url` |  |
 
@@ -307,20 +308,20 @@ Create an instance: `$cardinfo = $client->Cardinfo();`
 | `attribute` | `string` |  |
 | `banlist_info` | `array` |  |
 | `beta_name` | `string` |  |
-| `card_image` | `array` |  |
-| `card_price` | `array` |  |
-| `card_set` | `array` |  |
+| `card_images` | `array` |  |
+| `card_prices` | `array` |  |
+| `card_sets` | `array` |  |
 | `def` | `int` |  |
 | `desc` | `string` |  |
-| `downvote` | `int` |  |
-| `format` | `array` |  |
-| `frame_type` | `string` |  |
-| `genesys_point` | `int` |  |
+| `downvotes` | `int` |  |
+| `formats` | `array` |  |
+| `frameType` | `string` |  |
+| `genesys_points` | `int` |  |
 | `has_effect` | `int` |  |
 | `id` | `int` |  |
 | `konami_id` | `int` |  |
 | `level` | `int` |  |
-| `linkmarker` | `array` |  |
+| `linkmarkers` | `array` |  |
 | `linkval` | `int` |  |
 | `md_rarity` | `string` |  |
 | `name` | `string` |  |
@@ -328,10 +329,10 @@ Create an instance: `$cardinfo = $client->Cardinfo();`
 | `race` | `string` |  |
 | `scale` | `int` |  |
 | `tcg_date` | `string` |  |
-| `treated_a` | `string` |  |
+| `treated_as` | `string` |  |
 | `type` | `string` |  |
-| `upvote` | `int` |  |
-| `view` | `int` |  |
+| `upvotes` | `int` |  |
+| `views` | `int` |  |
 | `viewsweek` | `int` |  |
 | `ygoprodeck_url` | `string` |  |
 

@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ YuGiOhUtility::setRegistrar(function (YuGiOhUtility $u): void {
     $u->prepare_params = [YuGiOhPrepareParams::class, 'call'];
     $u->prepare_path = [YuGiOhPreparePath::class, 'call'];
     $u->prepare_query = [YuGiOhPrepareQuery::class, 'call'];
+    $u->graphql_body = [YuGiOhGraphql::class, 'body'];
+    $u->graphql_errors = [YuGiOhGraphql::class, 'errors'];
     $u->result_basic = [YuGiOhResultBasic::class, 'call'];
     $u->result_body = [YuGiOhResultBody::class, 'call'];
     $u->result_headers = [YuGiOhResultHeaders::class, 'call'];

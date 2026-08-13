@@ -8,6 +8,7 @@ guide: {
   entity: cardinfo: {
     path: "/cardinfo.php": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
   }
 

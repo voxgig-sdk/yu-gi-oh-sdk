@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import YuGiOhControl
-from core.error import YuGiOhError
-from core.result import YuGiOhResult
-from core.spec import YuGiOhSpec
+from yugioh_sdk.config import make_config
+from yugioh_sdk.features import _make_feature
+from yugioh_sdk.core.control import YuGiOhControl
+from yugioh_sdk.core.error import YuGiOhError
+from yugioh_sdk.core.result import YuGiOhResult
+from yugioh_sdk.core.spec import YuGiOhSpec
 
 
 # True when this SDK was generated with the named feature.

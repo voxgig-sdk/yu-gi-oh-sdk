@@ -16,11 +16,11 @@
 import pytest
 
 from yugioh_sdk import YuGiOhSDK
-from core.error import YuGiOhError
-from core.result import YuGiOhResult
-from core.response import YuGiOhResponse
-from core.spec import YuGiOhSpec
-from feature.base_feature import YuGiOhBaseFeature
+from yugioh_sdk.core.error import YuGiOhError
+from yugioh_sdk.core.result import YuGiOhResult
+from yugioh_sdk.core.response import YuGiOhResponse
+from yugioh_sdk.core.spec import YuGiOhSpec
+from yugioh_sdk.feature.base_feature import YuGiOhBaseFeature
 
 
 def _client():

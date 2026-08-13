@@ -11,20 +11,20 @@ export interface Cardinfo {
   attribute?: string
   banlist_info?: Record<string, any>
   beta_name?: string
-  card_image?: any[]
-  card_price?: any[]
-  card_set?: any[]
+  card_images?: any[]
+  card_prices?: any[]
+  card_sets?: any[]
   def?: number
   desc: string
-  downvote?: number
-  format?: any[]
-  frame_type: string
-  genesys_point?: number
+  downvotes?: number
+  formats?: any[]
+  frameType: string
+  genesys_points?: number
   has_effect?: number
   id: number
   konami_id?: number
   level?: number
-  linkmarker?: any[]
+  linkmarkers?: any[]
   linkval?: number
   md_rarity?: string
   name: string
@@ -32,10 +32,10 @@ export interface Cardinfo {
   race?: string
   scale?: number
   tcg_date?: string
-  treated_a?: string
+  treated_as?: string
   type: string
-  upvote?: number
-  view?: number
+  upvotes?: number
+  views?: number
   viewsweek?: number
   ygoprodeck_url?: string
 }
@@ -46,20 +46,20 @@ export interface CardinfoListMatch {
   attribute?: string
   banlist_info?: Record<string, any>
   beta_name?: string
-  card_image?: any[]
-  card_price?: any[]
-  card_set?: any[]
+  card_images?: any[]
+  card_prices?: any[]
+  card_sets?: any[]
   def?: number
   desc?: string
-  downvote?: number
-  format?: any[]
-  frame_type?: string
-  genesys_point?: number
+  downvotes?: number
+  formats?: any[]
+  frameType?: string
+  genesys_points?: number
   has_effect?: number
   id?: number
   konami_id?: number
   level?: number
-  linkmarker?: any[]
+  linkmarkers?: any[]
   linkval?: number
   md_rarity?: string
   name?: string
@@ -67,10 +67,10 @@ export interface CardinfoListMatch {
   race?: string
   scale?: number
   tcg_date?: string
-  treated_a?: string
+  treated_as?: string
   type?: string
-  upvote?: number
-  view?: number
+  upvotes?: number
+  views?: number
   viewsweek?: number
   ygoprodeck_url?: string
 }

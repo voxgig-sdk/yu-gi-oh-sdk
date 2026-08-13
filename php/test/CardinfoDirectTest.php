@@ -66,11 +66,11 @@ function cardinfo_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "YUGIOH_TEST_CARDINFO_ENTID" => [],
-        "YUGIOH_TEST_LIVE" => "FALSE",
+        "YU_GI_OH_TEST_CARDINFO_ENTID" => [],
+        "YU_GI_OH_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["YUGIOH_TEST_LIVE"] === "TRUE";
+    $live = $env["YU_GI_OH_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ YuGiOhUtility.registrar = ->(u) {
   u.prepare_params = YuGiOhUtilities::PrepareParams
   u.prepare_path = YuGiOhUtilities::PreparePath
   u.prepare_query = YuGiOhUtilities::PrepareQuery
+  u.graphql_body = YuGiOhUtilities::GraphqlBody
+  u.graphql_errors = YuGiOhUtilities::GraphqlErrors
   u.result_basic = YuGiOhUtilities::ResultBasic
   u.result_body = YuGiOhUtilities::ResultBody
   u.result_headers = YuGiOhUtilities::ResultHeaders

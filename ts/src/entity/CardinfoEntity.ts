@@ -37,7 +37,7 @@ class CardinfoEntity extends YuGiOhEntityBase<Cardinfo> {
 
 
 
-  async list(this: any, reqmatch?: CardinfoListMatch, ctrl?: Control): Promise<Cardinfo[]> {
+  async list(this: any, reqmatch?: CardinfoListMatch, ctrl?: Control): Promise<CardinfoEntity[]> {
 
     const utility = this._utility
 

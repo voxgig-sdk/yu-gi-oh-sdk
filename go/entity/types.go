@@ -6,7 +6,11 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
 
-import "encoding/json"
+import (
+	"encoding/json"
+
+	"github.com/voxgig-sdk/yu-gi-oh-sdk/go/core"
+)
 
 // Cardinfo is the typed data model for the cardinfo entity.
 type Cardinfo struct {
@@ -15,20 +19,20 @@ type Cardinfo struct {
 	Attribute *string `json:"attribute,omitempty"`
 	BanlistInfo *map[string]any `json:"banlist_info,omitempty"`
 	BetaName *string `json:"beta_name,omitempty"`
-	CardImage *[]any `json:"card_image,omitempty"`
-	CardPrice *[]any `json:"card_price,omitempty"`
-	CardSet *[]any `json:"card_set,omitempty"`
+	CardImages *[]any `json:"card_images,omitempty"`
+	CardPrices *[]any `json:"card_prices,omitempty"`
+	CardSets *[]any `json:"card_sets,omitempty"`
 	Def *int `json:"def,omitempty"`
 	Desc string `json:"desc"`
-	Downvote *int `json:"downvote,omitempty"`
-	Format *[]any `json:"format,omitempty"`
-	FrameType string `json:"frame_type"`
-	GenesysPoint *int `json:"genesys_point,omitempty"`
+	Downvotes *int `json:"downvotes,omitempty"`
+	Formats *[]any `json:"formats,omitempty"`
+	FrameType string `json:"frameType"`
+	GenesysPoints *int `json:"genesys_points,omitempty"`
 	HasEffect *int `json:"has_effect,omitempty"`
 	Id int `json:"id"`
 	KonamiId *int `json:"konami_id,omitempty"`
 	Level *int `json:"level,omitempty"`
-	Linkmarker *[]any `json:"linkmarker,omitempty"`
+	Linkmarkers *[]any `json:"linkmarkers,omitempty"`
 	Linkval *int `json:"linkval,omitempty"`
 	MdRarity *string `json:"md_rarity,omitempty"`
 	Name string `json:"name"`
@@ -36,10 +40,10 @@ type Cardinfo struct {
 	Race *string `json:"race,omitempty"`
 	Scale *int `json:"scale,omitempty"`
 	TcgDate *string `json:"tcg_date,omitempty"`
-	TreatedA *string `json:"treated_a,omitempty"`
+	TreatedAs *string `json:"treated_as,omitempty"`
 	Type string `json:"type"`
-	Upvote *int `json:"upvote,omitempty"`
-	View *int `json:"view,omitempty"`
+	Upvotes *int `json:"upvotes,omitempty"`
+	Views *int `json:"views,omitempty"`
 	Viewsweek *int `json:"viewsweek,omitempty"`
 	YgoprodeckUrl *string `json:"ygoprodeck_url,omitempty"`
 }
@@ -51,20 +55,20 @@ type CardinfoListMatch struct {
 	Attribute *string `json:"attribute,omitempty"`
 	BanlistInfo *map[string]any `json:"banlist_info,omitempty"`
 	BetaName *string `json:"beta_name,omitempty"`
-	CardImage *[]any `json:"card_image,omitempty"`
-	CardPrice *[]any `json:"card_price,omitempty"`
-	CardSet *[]any `json:"card_set,omitempty"`
+	CardImages *[]any `json:"card_images,omitempty"`
+	CardPrices *[]any `json:"card_prices,omitempty"`
+	CardSets *[]any `json:"card_sets,omitempty"`
 	Def *int `json:"def,omitempty"`
 	Desc *string `json:"desc,omitempty"`
-	Downvote *int `json:"downvote,omitempty"`
-	Format *[]any `json:"format,omitempty"`
-	FrameType *string `json:"frame_type,omitempty"`
-	GenesysPoint *int `json:"genesys_point,omitempty"`
+	Downvotes *int `json:"downvotes,omitempty"`
+	Formats *[]any `json:"formats,omitempty"`
+	FrameType *string `json:"frameType,omitempty"`
+	GenesysPoints *int `json:"genesys_points,omitempty"`
 	HasEffect *int `json:"has_effect,omitempty"`
 	Id *int `json:"id,omitempty"`
 	KonamiId *int `json:"konami_id,omitempty"`
 	Level *int `json:"level,omitempty"`
-	Linkmarker *[]any `json:"linkmarker,omitempty"`
+	Linkmarkers *[]any `json:"linkmarkers,omitempty"`
 	Linkval *int `json:"linkval,omitempty"`
 	MdRarity *string `json:"md_rarity,omitempty"`
 	Name *string `json:"name,omitempty"`
@@ -72,10 +76,10 @@ type CardinfoListMatch struct {
 	Race *string `json:"race,omitempty"`
 	Scale *int `json:"scale,omitempty"`
 	TcgDate *string `json:"tcg_date,omitempty"`
-	TreatedA *string `json:"treated_a,omitempty"`
+	TreatedAs *string `json:"treated_as,omitempty"`
 	Type *string `json:"type,omitempty"`
-	Upvote *int `json:"upvote,omitempty"`
-	View *int `json:"view,omitempty"`
+	Upvotes *int `json:"upvotes,omitempty"`
+	Views *int `json:"views,omitempty"`
 	Viewsweek *int `json:"viewsweek,omitempty"`
 	YgoprodeckUrl *string `json:"ygoprodeck_url,omitempty"`
 }
@@ -92,12 +96,26 @@ func asMap(v any) map[string]any {
 	return out
 }
 
-// typedFrom decodes a runtime value (a map[string]any produced by the op
-// pipeline) into a typed model T via a JSON round-trip. On any error it
-// returns the zero value of T; the op's own (value, error) tuple carries the
-// real error.
+// entityData unwraps an entity to its data map.
+//
+// Operations resolve to the ENTITY, not the raw data (see AGENTS.md), and an
+// entity's fields are UNEXPORTED — marshalling one directly yields `{}`, so
+// every typed accessor would silently hand back a zero-valued struct. The
+// typed boundary therefore takes the data hop first.
+func entityData(v any) any {
+	if ent, ok := v.(core.Entity); ok {
+		return ent.Data()
+	}
+	return v
+}
+
+// typedFrom decodes a runtime value (an entity, or the map[string]any the op
+// pipeline produced) into a typed model T via a JSON round-trip. On any error
+// it returns the zero value of T; the op's own (value, error) tuple carries
+// the real error.
 func typedFrom[T any](v any) T {
 	var out T
+	v = entityData(v)
 	if v == nil {
 		return out
 	}
@@ -109,12 +127,20 @@ func typedFrom[T any](v any) T {
 	return out
 }
 
-// typedSliceFrom decodes a runtime list value ([]any of maps) into a typed
-// slice []T via a JSON round-trip, for list ops.
+// typedSliceFrom decodes a runtime list value into a typed slice []T via a
+// JSON round-trip, for list ops. `list` resolves to a slice of ENTITY
+// instances, so each element takes the data hop.
 func typedSliceFrom[T any](v any) []T {
 	var out []T
 	if v == nil {
 		return out
+	}
+	if list, ok := v.([]any); ok {
+		unwrapped := make([]any, 0, len(list))
+		for _, item := range list {
+			unwrapped = append(unwrapped, entityData(item))
+		}
+		v = unwrapped
 	}
 	b, err := json.Marshal(v)
 	if err != nil {

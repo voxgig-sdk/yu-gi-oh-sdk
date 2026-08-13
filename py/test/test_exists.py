@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# YuGiOh SDK exists test
 
 import pytest
 from yugioh_sdk import YuGiOhSDK

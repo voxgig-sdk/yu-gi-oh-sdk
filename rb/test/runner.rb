@@ -23,8 +23,8 @@ module YuGiOhTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("YUGIOH_TEST_LIVE")
-    override = getenv("YUGIOH_TEST_OVERRIDE")
+    live = getenv("YU_GI_OH_TEST_LIVE")
+    override = getenv("YU_GI_OH_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module YuGiOhTestRunner
       end
     end
 
-    explain = getenv("YUGIOH_TEST_EXPLAIN")
-    m["YUGIOH_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("YU_GI_OH_TEST_EXPLAIN")
+    m["YU_GI_OH_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

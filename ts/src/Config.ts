@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'YuGiOh',
   }
 
 
@@ -91,21 +91,21 @@ class Config {
         },
         {
           "active": true,
-          "name": "card_image",
+          "name": "card_images",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 5
         },
         {
           "active": true,
-          "name": "card_price",
+          "name": "card_prices",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 6
         },
         {
           "active": true,
-          "name": "card_set",
+          "name": "card_sets",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 7
@@ -126,28 +126,28 @@ class Config {
         },
         {
           "active": true,
-          "name": "downvote",
+          "name": "downvotes",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 10
         },
         {
           "active": true,
-          "name": "format",
+          "name": "formats",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 11
         },
         {
           "active": true,
-          "name": "frame_type",
+          "name": "frameType",
           "req": true,
           "type": "`$STRING`",
           "index$": 12
         },
         {
           "active": true,
-          "name": "genesys_point",
+          "name": "genesys_points",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 13
@@ -182,7 +182,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "linkmarker",
+          "name": "linkmarkers",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 18
@@ -238,7 +238,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "treated_a",
+          "name": "treated_as",
           "req": false,
           "type": "`$STRING`",
           "index$": 26
@@ -252,14 +252,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "upvote",
+          "name": "upvotes",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 28
         },
         {
           "active": true,
-          "name": "view",
+          "name": "views",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 29
@@ -509,6 +509,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/cardinfo.php",
               "parts": [
@@ -545,7 +546,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.data`"
               },
               "index$": 0
             }

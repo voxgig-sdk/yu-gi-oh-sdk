@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = YuGiOhSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = YuGiOhSDK.test({
+  entity: {
+    cardinfo: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const cardinfos = await client.Cardinfo().list()
-// cardinfos is an array of bare Cardinfo records populated with mock data
+// cardinfos is an array of Cardinfo entities, populated with mock data
+// — call cardinfos[0].data() for the record itself
 console.log(cardinfos)
 ```
 
@@ -110,7 +119,7 @@ import { YuGiOhSDK } from '@voxgig-sdk/yu-gi-oh'
 
 const client = new YuGiOhSDK()
 
-// List all cardinfos (returns Cardinfo[])
+// List all cardinfos (returns CardinfoEntity[] — .data() for the record)
 const cardinfos = await client.Cardinfo().list()
 for (const cardinfo of cardinfos) {
   console.log(cardinfo)
@@ -343,6 +352,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://ygoprodeck.com/api-guide/](https://ygoprodeck.com/api-guide/)
 

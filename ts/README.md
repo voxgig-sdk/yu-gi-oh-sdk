@@ -35,7 +35,9 @@ const client = new YuGiOhSDK()
 
 ### 2. List cardinfo records
 
-`list()` resolves to an array of Cardinfo objects — iterate it directly:
+`list()` resolves to an array of Cardinfo ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const cardinfos = await client.Cardinfo().list()
@@ -120,7 +122,8 @@ Create a mock client for unit testing — no server required:
 const client = YuGiOhSDK.test()
 
 const cardinfo = await client.Cardinfo().list()
-// cardinfo is a bare entity populated with mock response data
+// cardinfo is the entity, populated with mock response data
+// — call cardinfo.data() for the record itself
 console.log(cardinfo)
 ```
 
@@ -289,20 +292,20 @@ The `prepare()` method returns:
 | `attribute` |  |
 | `banlist_info` |  |
 | `beta_name` |  |
-| `card_image` |  |
-| `card_price` |  |
-| `card_set` |  |
+| `card_images` |  |
+| `card_prices` |  |
+| `card_sets` |  |
 | `def` |  |
 | `desc` |  |
-| `downvote` |  |
-| `format` |  |
-| `frame_type` |  |
-| `genesys_point` |  |
+| `downvotes` |  |
+| `formats` |  |
+| `frameType` |  |
+| `genesys_points` |  |
 | `has_effect` |  |
 | `id` |  |
 | `konami_id` |  |
 | `level` |  |
-| `linkmarker` |  |
+| `linkmarkers` |  |
 | `linkval` |  |
 | `md_rarity` |  |
 | `name` |  |
@@ -310,10 +313,10 @@ The `prepare()` method returns:
 | `race` |  |
 | `scale` |  |
 | `tcg_date` |  |
-| `treated_a` |  |
+| `treated_as` |  |
 | `type` |  |
-| `upvote` |  |
-| `view` |  |
+| `upvotes` |  |
+| `views` |  |
 | `viewsweek` |  |
 | `ygoprodeck_url` |  |
 
@@ -345,20 +348,20 @@ Create an instance: `const cardinfo = client.Cardinfo()`
 | `attribute` | `string` |  |
 | `banlist_info` | `Record<string, any>` |  |
 | `beta_name` | `string` |  |
-| `card_image` | `any[]` |  |
-| `card_price` | `any[]` |  |
-| `card_set` | `any[]` |  |
+| `card_images` | `any[]` |  |
+| `card_prices` | `any[]` |  |
+| `card_sets` | `any[]` |  |
 | `def` | `number` |  |
 | `desc` | `string` |  |
-| `downvote` | `number` |  |
-| `format` | `any[]` |  |
-| `frame_type` | `string` |  |
-| `genesys_point` | `number` |  |
+| `downvotes` | `number` |  |
+| `formats` | `any[]` |  |
+| `frameType` | `string` |  |
+| `genesys_points` | `number` |  |
 | `has_effect` | `number` |  |
 | `id` | `number` |  |
 | `konami_id` | `number` |  |
 | `level` | `number` |  |
-| `linkmarker` | `any[]` |  |
+| `linkmarkers` | `any[]` |  |
 | `linkval` | `number` |  |
 | `md_rarity` | `string` |  |
 | `name` | `string` |  |
@@ -366,10 +369,10 @@ Create an instance: `const cardinfo = client.Cardinfo()`
 | `race` | `string` |  |
 | `scale` | `number` |  |
 | `tcg_date` | `string` |  |
-| `treated_a` | `string` |  |
+| `treated_as` | `string` |  |
 | `type` | `string` |  |
-| `upvote` | `number` |  |
-| `view` | `number` |  |
+| `upvotes` | `number` |  |
+| `views` | `number` |  |
 | `viewsweek` | `number` |  |
 | `ygoprodeck_url` | `string` |  |
 

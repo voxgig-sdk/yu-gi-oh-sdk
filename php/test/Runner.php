@@ -43,8 +43,8 @@ class YuGiOhTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('YUGIOH_TEST_LIVE');
-        $override = self::getenv('YUGIOH_TEST_OVERRIDE');
+        $live = self::getenv('YU_GI_OH_TEST_LIVE');
+        $override = self::getenv('YU_GI_OH_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class YuGiOhTestRunner
             }
         }
 
-        $explain = self::getenv('YUGIOH_TEST_EXPLAIN');
+        $explain = self::getenv('YU_GI_OH_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['YUGIOH_TEST_EXPLAIN'] = $explain;
+            $m['YU_GI_OH_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

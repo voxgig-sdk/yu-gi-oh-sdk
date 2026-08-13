@@ -61,11 +61,11 @@ function cardinfo_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["YUGIOH_TEST_CARDINFO_ENTID"] = {},
-    ["YUGIOH_TEST_LIVE"] = "FALSE",
+    ["YU_GI_OH_TEST_CARDINFO_ENTID"] = {},
+    ["YU_GI_OH_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["YUGIOH_TEST_LIVE"] == "TRUE"
+  local live = env["YU_GI_OH_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

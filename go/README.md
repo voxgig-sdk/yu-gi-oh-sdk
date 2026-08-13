@@ -265,20 +265,20 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"attribute"` |  |
 | `"banlist_info"` |  |
 | `"beta_name"` |  |
-| `"card_image"` |  |
-| `"card_price"` |  |
-| `"card_set"` |  |
+| `"card_images"` |  |
+| `"card_prices"` |  |
+| `"card_sets"` |  |
 | `"def"` |  |
 | `"desc"` |  |
-| `"downvote"` |  |
-| `"format"` |  |
-| `"frame_type"` |  |
-| `"genesys_point"` |  |
+| `"downvotes"` |  |
+| `"formats"` |  |
+| `"frameType"` |  |
+| `"genesys_points"` |  |
 | `"has_effect"` |  |
 | `"id"` |  |
 | `"konami_id"` |  |
 | `"level"` |  |
-| `"linkmarker"` |  |
+| `"linkmarkers"` |  |
 | `"linkval"` |  |
 | `"md_rarity"` |  |
 | `"name"` |  |
@@ -286,10 +286,10 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"race"` |  |
 | `"scale"` |  |
 | `"tcg_date"` |  |
-| `"treated_a"` |  |
+| `"treated_as"` |  |
 | `"type"` |  |
-| `"upvote"` |  |
-| `"view"` |  |
+| `"upvotes"` |  |
+| `"views"` |  |
 | `"viewsweek"` |  |
 | `"ygoprodeck_url"` |  |
 
@@ -321,20 +321,20 @@ Create an instance: `cardinfo := client.Cardinfo(nil)`
 | `attribute` | `string` |  |
 | `banlist_info` | `map[string]any` |  |
 | `beta_name` | `string` |  |
-| `card_image` | `[]any` |  |
-| `card_price` | `[]any` |  |
-| `card_set` | `[]any` |  |
+| `card_images` | `[]any` |  |
+| `card_prices` | `[]any` |  |
+| `card_sets` | `[]any` |  |
 | `def` | `int` |  |
 | `desc` | `string` |  |
-| `downvote` | `int` |  |
-| `format` | `[]any` |  |
-| `frame_type` | `string` |  |
-| `genesys_point` | `int` |  |
+| `downvotes` | `int` |  |
+| `formats` | `[]any` |  |
+| `frameType` | `string` |  |
+| `genesys_points` | `int` |  |
 | `has_effect` | `int` |  |
 | `id` | `int` |  |
 | `konami_id` | `int` |  |
 | `level` | `int` |  |
-| `linkmarker` | `[]any` |  |
+| `linkmarkers` | `[]any` |  |
 | `linkval` | `int` |  |
 | `md_rarity` | `string` |  |
 | `name` | `string` |  |
@@ -342,10 +342,10 @@ Create an instance: `cardinfo := client.Cardinfo(nil)`
 | `race` | `string` |  |
 | `scale` | `int` |  |
 | `tcg_date` | `string` |  |
-| `treated_a` | `string` |  |
+| `treated_as` | `string` |  |
 | `type` | `string` |  |
-| `upvote` | `int` |  |
-| `view` | `int` |  |
+| `upvotes` | `int` |  |
+| `views` | `int` |  |
 | `viewsweek` | `int` |  |
 | `ygoprodeck_url` | `string` |  |
 
