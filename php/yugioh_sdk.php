@@ -40,7 +40,7 @@ class YuGiOhSDK
         $utility = new YuGiOhUtility();
         $this->_utility = $utility;
 
-        $config = YuGiOhConfig::make_config();
+        $config = YuGiOhConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

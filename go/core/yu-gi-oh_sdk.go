@@ -23,7 +23,7 @@ func NewYuGiOhSDK(options map[string]any) *YuGiOhSDK {
 
 	sdk.utility = NewUtility()
 
-	config := MakeConfig()
+	config := SharedConfig()
 
 	sdk.rootctx = sdk.utility.MakeContext(map[string]any{
 		"client":  sdk,

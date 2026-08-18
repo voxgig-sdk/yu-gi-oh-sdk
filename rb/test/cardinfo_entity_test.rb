@@ -33,7 +33,7 @@ class CardinfoEntityTest < Minitest::Test
     assert_equal 3, seen.length
 
     # Inbound: streaming active -> yields each item from the feature.
-    cfg = YuGiOhConfig.make_config
+    cfg = YuGiOhConfig.shared_config
     if cfg["feature"].is_a?(Hash) && cfg["feature"].key?("streaming")
       sdk = YuGiOhSDK.test(seed, { "feature" => { "streaming" => { "active" => true } } })
       got = []

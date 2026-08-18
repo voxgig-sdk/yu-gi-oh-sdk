@@ -28,7 +28,7 @@ class YuGiOhSDK
     utility = YuGiOhUtility.new
     @_utility = utility
 
-    config = YuGiOhConfig.make_config
+    config = YuGiOhConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
