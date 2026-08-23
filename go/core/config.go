@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "YuGiOh",
+			"slug": "yu-gi-oh",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -33,135 +36,167 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "archetype",
+						"short": "The archetype the card belongs to",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "atk",
+						"short": "ATK value (Monster cards only)",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "attribute",
+						"short": "Attribute of the card (Monster cards only: DARK, LIGHT, WATER, FIRE, EARTH, WIND, DIVINE)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "banlist_info",
+						"short": "Banlist status information for the card",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "beta_name",
+						"short": "Old/temporary/translated name (only when misc=yes)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "card_images",
+						"short": "Array of card images including alternate artworks",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "card_prices",
+						"short": "Array of card prices from various vendors (lowest price across all versions)",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "card_sets",
+						"short": "Array of card sets this card appears in",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "def",
+						"short": "DEF value (Monster cards only, not Link Monsters)",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "desc",
 						"req": true,
+						"short": "Card description/effect text",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "downvotes",
+						"short": "Number of downvotes (only when misc=yes)",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "formats",
+						"short": "Available formats the card is in (only when misc=yes)",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "frameType",
 						"req": true,
+						"short": "The backdrop frame type (normal, effect, synchro, xyz, spell, trap, link, etc.)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "genesys_points",
+						"short": "Genesys format points code (only when format=genesys).",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "has_effect",
+						"short": "Whether card has an actual text effect (1=true, 0=false) (only when misc=yes)",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "id",
 						"req": true,
+						"short": "8-digit passcode/ID of the card",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "konami_id",
+						"short": "Konami ID of the card (only when misc=yes)",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "level",
+						"short": "Level or RANK of the card (Monster cards only, not Link Monsters)",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "linkmarkers",
+						"short": "Link Markers (Link Monsters only)",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "linkval",
+						"short": "Link value (Link Monsters only)",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "md_rarity",
+						"short": "Master Duel rarity (only when misc=yes)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "name",
 						"req": true,
+						"short": "Name of the card",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "ocg_date",
+						"short": "Original OCG release date (only when misc=yes)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "race",
+						"short": "Card race/type.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "scale",
+						"short": "Pendulum Scale value (Pendulum Monsters only)",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "tcg_date",
+						"short": "Original TCG release date (only when misc=yes)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "treated_as",
+						"short": "If the card is treated as another card (e.g., Harpie Lady 1,2,3 are treated as Harpie Lady) (only when misc=yes)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "type",
 						"req": true,
+						"short": "The type of card (Normal Monster, Effect Monster, Synchro Monster, XYZ Monster, Spell Card, Trap Card, etc.)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "upvotes",
+						"short": "Number of upvotes (only when misc=yes)",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "views",
+						"short": "Number of times card has been viewed in database (only when misc=yes)",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "viewsweek",
+						"short": "Number of times card has been viewed this week (only when misc=yes)",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "ygoprodeck_url",
+						"short": "URL to the card's page on YGOPRODeck",
 						"type": "`$STRING`",
 					},
 				},

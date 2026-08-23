@@ -90,38 +90,38 @@ local cardinfo = client:Cardinfo(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `archetype` | `string` | No |  |
-| `atk` | `number` | No |  |
-| `attribute` | `string` | No |  |
-| `banlist_info` | `table` | No |  |
-| `beta_name` | `string` | No |  |
-| `card_images` | `table` | No |  |
-| `card_prices` | `table` | No |  |
-| `card_sets` | `table` | No |  |
-| `def` | `number` | No |  |
-| `desc` | `string` | Yes |  |
-| `downvotes` | `number` | No |  |
-| `formats` | `table` | No |  |
-| `frameType` | `string` | Yes |  |
-| `genesys_points` | `number` | No |  |
-| `has_effect` | `number` | No |  |
-| `id` | `number` | Yes |  |
-| `konami_id` | `number` | No |  |
-| `level` | `number` | No |  |
-| `linkmarkers` | `table` | No |  |
-| `linkval` | `number` | No |  |
-| `md_rarity` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `ocg_date` | `string` | No |  |
-| `race` | `string` | No |  |
-| `scale` | `number` | No |  |
-| `tcg_date` | `string` | No |  |
-| `treated_as` | `string` | No |  |
-| `type` | `string` | Yes |  |
-| `upvotes` | `number` | No |  |
-| `views` | `number` | No |  |
-| `viewsweek` | `number` | No |  |
-| `ygoprodeck_url` | `string` | No |  |
+| `archetype` | `string` | No | The archetype the card belongs to |
+| `atk` | `number` | No | ATK value (Monster cards only) |
+| `attribute` | `string` | No | Attribute of the card (Monster cards only: DARK, LIGHT, WATER, FIRE, EARTH, WIND, DIVINE) |
+| `banlist_info` | `table` | No | Banlist status information for the card |
+| `beta_name` | `string` | No | Old/temporary/translated name (only when misc=yes) |
+| `card_images` | `table` | No | Array of card images including alternate artworks |
+| `card_prices` | `table` | No | Array of card prices from various vendors (lowest price across all versions) |
+| `card_sets` | `table` | No | Array of card sets this card appears in |
+| `def` | `number` | No | DEF value (Monster cards only, not Link Monsters) |
+| `desc` | `string` | Yes | Card description/effect text |
+| `downvotes` | `number` | No | Number of downvotes (only when misc=yes) |
+| `formats` | `table` | No | Available formats the card is in (only when misc=yes) |
+| `frameType` | `string` | Yes | The backdrop frame type (normal, effect, synchro, xyz, spell, trap, link, etc.) |
+| `genesys_points` | `number` | No | Genesys format points code (only when format=genesys). |
+| `has_effect` | `number` | No | Whether card has an actual text effect (1=true, 0=false) (only when misc=yes) |
+| `id` | `number` | Yes | 8-digit passcode/ID of the card |
+| `konami_id` | `number` | No | Konami ID of the card (only when misc=yes) |
+| `level` | `number` | No | Level or RANK of the card (Monster cards only, not Link Monsters) |
+| `linkmarkers` | `table` | No | Link Markers (Link Monsters only) |
+| `linkval` | `number` | No | Link value (Link Monsters only) |
+| `md_rarity` | `string` | No | Master Duel rarity (only when misc=yes) |
+| `name` | `string` | Yes | Name of the card |
+| `ocg_date` | `string` | No | Original OCG release date (only when misc=yes) |
+| `race` | `string` | No | Card race/type. |
+| `scale` | `number` | No | Pendulum Scale value (Pendulum Monsters only) |
+| `tcg_date` | `string` | No | Original TCG release date (only when misc=yes) |
+| `treated_as` | `string` | No | If the card is treated as another card (e.g., Harpie Lady 1,2,3 are treated as Harpie Lady) (only when misc=yes) |
+| `type` | `string` | Yes | The type of card (Normal Monster, Effect Monster, Synchro Monster, XYZ Monster, Spell Card, Trap Card, etc.) |
+| `upvotes` | `number` | No | Number of upvotes (only when misc=yes) |
+| `views` | `number` | No | Number of times card has been viewed in database (only when misc=yes) |
+| `viewsweek` | `number` | No | Number of times card has been viewed this week (only when misc=yes) |
+| `ygoprodeck_url` | `string` | No | URL to the card's page on YGOPRODeck |
 
 ### Operations
 

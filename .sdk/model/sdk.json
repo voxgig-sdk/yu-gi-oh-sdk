@@ -36,192 +36,224 @@
               "active": true,
               "name": "archetype",
               "req": false,
+              "short": "The archetype the card belongs to",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "atk",
               "req": false,
+              "short": "ATK value (Monster cards only)",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "attribute",
               "req": false,
+              "short": "Attribute of the card (Monster cards only: DARK, LIGHT, WATER, FIRE, EARTH, WIND, DIVINE)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "banlist_info",
               "req": false,
+              "short": "Banlist status information for the card",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "beta_name",
               "req": false,
+              "short": "Old/temporary/translated name (only when misc=yes)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "card_images",
               "req": false,
+              "short": "Array of card images including alternate artworks",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "card_prices",
               "req": false,
+              "short": "Array of card prices from various vendors (lowest price across all versions)",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "card_sets",
               "req": false,
+              "short": "Array of card sets this card appears in",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "def",
               "req": false,
+              "short": "DEF value (Monster cards only, not Link Monsters)",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "desc",
               "req": true,
+              "short": "Card description/effect text",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "downvotes",
               "req": false,
+              "short": "Number of downvotes (only when misc=yes)",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "formats",
               "req": false,
+              "short": "Available formats the card is in (only when misc=yes)",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "frameType",
               "req": true,
+              "short": "The backdrop frame type (normal, effect, synchro, xyz, spell, trap, link, etc.)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "genesys_points",
               "req": false,
+              "short": "Genesys format points code (only when format=genesys).",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "has_effect",
               "req": false,
+              "short": "Whether card has an actual text effect (1=true, 0=false) (only when misc=yes)",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "id",
               "req": true,
+              "short": "8-digit passcode/ID of the card",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "konami_id",
               "req": false,
+              "short": "Konami ID of the card (only when misc=yes)",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "level",
               "req": false,
+              "short": "Level or RANK of the card (Monster cards only, not Link Monsters)",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "linkmarkers",
               "req": false,
+              "short": "Link Markers (Link Monsters only)",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "linkval",
               "req": false,
+              "short": "Link value (Link Monsters only)",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "md_rarity",
               "req": false,
+              "short": "Master Duel rarity (only when misc=yes)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "Name of the card",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "ocg_date",
               "req": false,
+              "short": "Original OCG release date (only when misc=yes)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "race",
               "req": false,
+              "short": "Card race/type.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "scale",
               "req": false,
+              "short": "Pendulum Scale value (Pendulum Monsters only)",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "tcg_date",
               "req": false,
+              "short": "Original TCG release date (only when misc=yes)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "treated_as",
               "req": false,
+              "short": "If the card is treated as another card (e.g., Harpie Lady 1,2,3 are treated as Harpie Lady) (only when misc=yes)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "type",
               "req": true,
+              "short": "The type of card (Normal Monster, Effect Monster, Synchro Monster, XYZ Monster, Spell Card, Trap Card, etc.)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "upvotes",
               "req": false,
+              "short": "Number of upvotes (only when misc=yes)",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "views",
               "req": false,
+              "short": "Number of times card has been viewed in database (only when misc=yes)",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "viewsweek",
               "req": false,
+              "short": "Number of times card has been viewed this week (only when misc=yes)",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "ygoprodeck_url",
               "req": false,
+              "short": "URL to the card's page on YGOPRODeck",
               "type": "`$STRING`"
             }
           ],
