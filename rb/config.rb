@@ -28,6 +28,7 @@ module YuGiOhConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
