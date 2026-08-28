@@ -55,33 +55,26 @@ class Cardinfo(CardinfoRequired, total=False):
 
 class CardinfoListMatch(TypedDict, total=False):
     archetype: str
-    atk: int
+    atk: str
     attribute: str
-    banlist_info: dict
-    beta_name: str
-    card_images: list
-    card_prices: list
-    card_sets: list
-    desc: str
-    downvotes: int
-    formats: list
-    frameType: str
-    genesys_points: int
-    has_effect: int
-    id: int
+    banlist: str
+    cardset: str
+    dateregion: str
+    enddate: str
+    fname: str
+    format: str
+    has_effect: bool
+    id: str
     konami_id: int
-    level: int
-    linkmarkers: list
-    linkval: int
-    md_rarity: str
+    level: str
+    link: int
+    linkmarker: str
+    misc: str
     name: str
-    ocg_date: str
     race: str
     scale: int
-    tcg_date: str
-    treated_as: str
+    sort: str
+    staple: str
+    startdate: str
+    tcgplayer_data: str
     type: str
-    upvotes: int
-    views: int
-    viewsweek: int
-    ygoprodeck_url: str

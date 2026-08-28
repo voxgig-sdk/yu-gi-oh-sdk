@@ -51,37 +51,30 @@ type Cardinfo struct {
 // CardinfoListMatch is the typed request payload for Cardinfo.ListTyped.
 type CardinfoListMatch struct {
 	Archetype *string `json:"archetype,omitempty"`
-	Atk *int `json:"atk,omitempty"`
+	Atk *string `json:"atk,omitempty"`
 	Attribute *string `json:"attribute,omitempty"`
-	BanlistInfo *map[string]any `json:"banlist_info,omitempty"`
-	BetaName *string `json:"beta_name,omitempty"`
-	CardImages *[]any `json:"card_images,omitempty"`
-	CardPrices *[]any `json:"card_prices,omitempty"`
-	CardSets *[]any `json:"card_sets,omitempty"`
-	Def *int `json:"def,omitempty"`
-	Desc *string `json:"desc,omitempty"`
-	Downvotes *int `json:"downvotes,omitempty"`
-	Formats *[]any `json:"formats,omitempty"`
-	FrameType *string `json:"frameType,omitempty"`
-	GenesysPoints *int `json:"genesys_points,omitempty"`
-	HasEffect *int `json:"has_effect,omitempty"`
-	Id *int `json:"id,omitempty"`
+	Banlist *string `json:"banlist,omitempty"`
+	Cardset *string `json:"cardset,omitempty"`
+	Dateregion *string `json:"dateregion,omitempty"`
+	Def *string `json:"def,omitempty"`
+	Enddate *string `json:"enddate,omitempty"`
+	Fname *string `json:"fname,omitempty"`
+	Format *string `json:"format,omitempty"`
+	HasEffect *bool `json:"has_effect,omitempty"`
+	Id *string `json:"id,omitempty"`
 	KonamiId *int `json:"konami_id,omitempty"`
-	Level *int `json:"level,omitempty"`
-	Linkmarkers *[]any `json:"linkmarkers,omitempty"`
-	Linkval *int `json:"linkval,omitempty"`
-	MdRarity *string `json:"md_rarity,omitempty"`
+	Level *string `json:"level,omitempty"`
+	Link *int `json:"link,omitempty"`
+	Linkmarker *string `json:"linkmarker,omitempty"`
+	Misc *string `json:"misc,omitempty"`
 	Name *string `json:"name,omitempty"`
-	OcgDate *string `json:"ocg_date,omitempty"`
 	Race *string `json:"race,omitempty"`
 	Scale *int `json:"scale,omitempty"`
-	TcgDate *string `json:"tcg_date,omitempty"`
-	TreatedAs *string `json:"treated_as,omitempty"`
+	Sort *string `json:"sort,omitempty"`
+	Staple *string `json:"staple,omitempty"`
+	Startdate *string `json:"startdate,omitempty"`
+	TcgplayerData *string `json:"tcgplayer_data,omitempty"`
 	Type *string `json:"type,omitempty"`
-	Upvotes *int `json:"upvotes,omitempty"`
-	Views *int `json:"views,omitempty"`
-	Viewsweek *int `json:"viewsweek,omitempty"`
-	YgoprodeckUrl *string `json:"ygoprodeck_url,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

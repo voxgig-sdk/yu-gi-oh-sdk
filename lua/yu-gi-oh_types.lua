@@ -42,37 +42,30 @@
 
 ---@class CardinfoListMatch
 ---@field archetype? string
----@field atk? number
+---@field atk? string
 ---@field attribute? string
----@field banlist_info? table
----@field beta_name? string
----@field card_images? table
----@field card_prices? table
----@field card_sets? table
----@field def? number
----@field desc? string
----@field downvotes? number
----@field formats? table
----@field frameType? string
----@field genesys_points? number
----@field has_effect? number
----@field id? number
+---@field banlist? string
+---@field cardset? string
+---@field dateregion? string
+---@field def? string
+---@field enddate? string
+---@field fname? string
+---@field format? string
+---@field has_effect? boolean
+---@field id? string
 ---@field konami_id? number
----@field level? number
----@field linkmarkers? table
----@field linkval? number
----@field md_rarity? string
+---@field level? string
+---@field link? number
+---@field linkmarker? string
+---@field misc? string
 ---@field name? string
----@field ocg_date? string
 ---@field race? string
 ---@field scale? number
----@field tcg_date? string
----@field treated_as? string
+---@field sort? string
+---@field staple? string
+---@field startdate? string
+---@field tcgplayer_data? string
 ---@field type? string
----@field upvotes? number
----@field views? number
----@field viewsweek? number
----@field ygoprodeck_url? string
 
 local M = {}
 

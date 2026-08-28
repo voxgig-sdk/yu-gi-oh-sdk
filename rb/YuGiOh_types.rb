@@ -147,69 +147,54 @@ Cardinfo = Struct.new(
 #   @return [String, nil]
 #
 # @!attribute [rw] atk
-#   @return [Integer, nil]
+#   @return [String, nil]
 #
 # @!attribute [rw] attribute
 #   @return [String, nil]
 #
-# @!attribute [rw] banlist_info
-#   @return [Hash, nil]
-#
-# @!attribute [rw] beta_name
+# @!attribute [rw] banlist
 #   @return [String, nil]
 #
-# @!attribute [rw] card_images
-#   @return [Array, nil]
+# @!attribute [rw] cardset
+#   @return [String, nil]
 #
-# @!attribute [rw] card_prices
-#   @return [Array, nil]
-#
-# @!attribute [rw] card_sets
-#   @return [Array, nil]
+# @!attribute [rw] dateregion
+#   @return [String, nil]
 #
 # @!attribute [rw] def
-#   @return [Integer, nil]
-#
-# @!attribute [rw] desc
 #   @return [String, nil]
 #
-# @!attribute [rw] downvotes
-#   @return [Integer, nil]
-#
-# @!attribute [rw] formats
-#   @return [Array, nil]
-#
-# @!attribute [rw] frameType
+# @!attribute [rw] enddate
 #   @return [String, nil]
 #
-# @!attribute [rw] genesys_points
-#   @return [Integer, nil]
+# @!attribute [rw] fname
+#   @return [String, nil]
+#
+# @!attribute [rw] format
+#   @return [String, nil]
 #
 # @!attribute [rw] has_effect
-#   @return [Integer, nil]
+#   @return [Boolean, nil]
 #
 # @!attribute [rw] id
-#   @return [Integer, nil]
+#   @return [String, nil]
 #
 # @!attribute [rw] konami_id
 #   @return [Integer, nil]
 #
 # @!attribute [rw] level
+#   @return [String, nil]
+#
+# @!attribute [rw] link
 #   @return [Integer, nil]
 #
-# @!attribute [rw] linkmarkers
-#   @return [Array, nil]
+# @!attribute [rw] linkmarker
+#   @return [String, nil]
 #
-# @!attribute [rw] linkval
-#   @return [Integer, nil]
-#
-# @!attribute [rw] md_rarity
+# @!attribute [rw] misc
 #   @return [String, nil]
 #
 # @!attribute [rw] name
-#   @return [String, nil]
-#
-# @!attribute [rw] ocg_date
 #   @return [String, nil]
 #
 # @!attribute [rw] race
@@ -218,59 +203,46 @@ Cardinfo = Struct.new(
 # @!attribute [rw] scale
 #   @return [Integer, nil]
 #
-# @!attribute [rw] tcg_date
+# @!attribute [rw] sort
 #   @return [String, nil]
 #
-# @!attribute [rw] treated_as
+# @!attribute [rw] staple
+#   @return [String, nil]
+#
+# @!attribute [rw] startdate
+#   @return [String, nil]
+#
+# @!attribute [rw] tcgplayer_data
 #   @return [String, nil]
 #
 # @!attribute [rw] type
-#   @return [String, nil]
-#
-# @!attribute [rw] upvotes
-#   @return [Integer, nil]
-#
-# @!attribute [rw] views
-#   @return [Integer, nil]
-#
-# @!attribute [rw] viewsweek
-#   @return [Integer, nil]
-#
-# @!attribute [rw] ygoprodeck_url
 #   @return [String, nil]
 CardinfoListMatch = Struct.new(
   :archetype,
   :atk,
   :attribute,
-  :banlist_info,
-  :beta_name,
-  :card_images,
-  :card_prices,
-  :card_sets,
+  :banlist,
+  :cardset,
+  :dateregion,
   :def,
-  :desc,
-  :downvotes,
-  :formats,
-  :frameType,
-  :genesys_points,
+  :enddate,
+  :fname,
+  :format,
   :has_effect,
   :id,
   :konami_id,
   :level,
-  :linkmarkers,
-  :linkval,
-  :md_rarity,
+  :link,
+  :linkmarker,
+  :misc,
   :name,
-  :ocg_date,
   :race,
   :scale,
-  :tcg_date,
-  :treated_as,
+  :sort,
+  :staple,
+  :startdate,
+  :tcgplayer_data,
   :type,
-  :upvotes,
-  :views,
-  :viewsweek,
-  :ygoprodeck_url,
   keyword_init: true
 )
 
