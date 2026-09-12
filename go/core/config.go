@@ -150,6 +150,7 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "date",
 						"name": "ocg_date",
 						"short": "Original OCG release date (only when misc=yes)",
 						"type": "`$STRING`",
@@ -165,6 +166,7 @@ func MakeConfig() map[string]any {
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
+						"format": "date",
 						"name": "tcg_date",
 						"short": "Original TCG release date (only when misc=yes)",
 						"type": "`$STRING`",
@@ -196,10 +198,15 @@ func MakeConfig() map[string]any {
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "ygoprodeck_url",
 						"short": "URL to the card's page on YGOPRODeck",
 						"type": "`$STRING`",
 					},
+				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
 				},
 				"name": "cardinfo",
 				"op": map[string]any{
@@ -383,8 +390,10 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/cardinfo.php",
-								"parts": []any{
-									"cardinfo.php",
+								"segments": []any{
+									map[string]any{
+										"lit": "cardinfo.php",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -419,6 +428,9 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body.data`",
 								},
+								"parts": []any{
+									"cardinfo.php",
+								},
 							},
 						},
 					},
@@ -429,6 +441,17 @@ func MakeConfig() map[string]any {
 			},
 		},
 	}
+}
+
+// The plugin definitions the model selected per feature, as []any so a
+// feature package can consume them without core naming its types. Empty
+// when no active feature declares active plugin groups for this target.
+var featurePlugins = map[string][]any{
+}
+
+// FeaturePlugins is the definitions list for one feature's chain.
+func FeaturePlugins(name string) []any {
+	return featurePlugins[name]
 }
 
 var (

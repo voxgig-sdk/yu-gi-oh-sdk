@@ -146,6 +146,7 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "date",
             ["name"] = "ocg_date",
             ["short"] = "Original OCG release date (only when misc=yes)",
             ["type"] = "`$STRING`",
@@ -161,6 +162,7 @@ local function make_config()
             ["type"] = "`$INTEGER`",
           },
           {
+            ["format"] = "date",
             ["name"] = "tcg_date",
             ["short"] = "Original TCG release date (only when misc=yes)",
             ["type"] = "`$STRING`",
@@ -192,10 +194,15 @@ local function make_config()
             ["type"] = "`$INTEGER`",
           },
           {
+            ["format"] = "uri",
             ["name"] = "ygoprodeck_url",
             ["short"] = "URL to the card's page on YGOPRODeck",
             ["type"] = "`$STRING`",
           },
+        },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
         },
         ["name"] = "cardinfo",
         ["op"] = {
@@ -379,8 +386,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cardinfo.php",
-                ["parts"] = {
-                  "cardinfo.php",
+                ["segments"] = {
+                  {
+                    ["lit"] = "cardinfo.php",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -414,6 +423,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.data`",
+                },
+                ["parts"] = {
+                  "cardinfo.php",
                 },
               },
             },

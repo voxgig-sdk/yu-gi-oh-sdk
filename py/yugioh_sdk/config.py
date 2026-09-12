@@ -1,6 +1,14 @@
 # YuGiOh SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -167,6 +175,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date",
             "name": "ocg_date",
             "short": "Original OCG release date (only when misc=yes)",
             "type": "`$STRING`",
@@ -182,6 +191,7 @@ def make_config():
             "type": "`$INTEGER`",
           },
           {
+            "format": "date",
             "name": "tcg_date",
             "short": "Original TCG release date (only when misc=yes)",
             "type": "`$STRING`",
@@ -213,11 +223,16 @@ def make_config():
             "type": "`$INTEGER`",
           },
           {
+            "format": "uri",
             "name": "ygoprodeck_url",
             "short": "URL to the card's page on YGOPRODeck",
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "cardinfo",
         "op": {
           "list": {
@@ -400,8 +415,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/cardinfo.php",
-                "parts": [
-                  "cardinfo.php",
+                "segments": [
+                  {
+                    "lit": "cardinfo.php",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -436,6 +453,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.data`",
                 },
+                "parts": [
+                  "cardinfo.php",
+                ],
               },
             ],
           },

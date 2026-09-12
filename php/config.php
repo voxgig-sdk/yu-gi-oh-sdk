@@ -172,6 +172,7 @@ class YuGiOhConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'date',
               'name' => 'ocg_date',
               'short' => 'Original OCG release date (only when misc=yes)',
               'type' => '`$STRING`',
@@ -187,6 +188,7 @@ class YuGiOhConfig
               'type' => '`$INTEGER`',
             ],
             [
+              'format' => 'date',
               'name' => 'tcg_date',
               'short' => 'Original TCG release date (only when misc=yes)',
               'type' => '`$STRING`',
@@ -218,10 +220,15 @@ class YuGiOhConfig
               'type' => '`$INTEGER`',
             ],
             [
+              'format' => 'uri',
               'name' => 'ygoprodeck_url',
               'short' => 'URL to the card\'s page on YGOPRODeck',
               'type' => '`$STRING`',
             ],
+          ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
           ],
           'name' => 'cardinfo',
           'op' => [
@@ -405,8 +412,10 @@ class YuGiOhConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/cardinfo.php',
-                  'parts' => [
-                    'cardinfo.php',
+                  'segments' => [
+                    [
+                      'lit' => 'cardinfo.php',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -440,6 +449,9 @@ class YuGiOhConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.data`',
+                  ],
+                  'parts' => [
+                    'cardinfo.php',
                   ],
                 ],
               ],

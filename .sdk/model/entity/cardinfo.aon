@@ -138,6 +138,7 @@ main: kit: entity: cardinfo: {
       type: "`$STRING`"
     }
     {
+      format: "date"
       name: "ocg_date"
       req: false
       short: "Original OCG release date (only when misc=yes)"
@@ -156,6 +157,7 @@ main: kit: entity: cardinfo: {
       type: "`$INTEGER`"
     }
     {
+      format: "date"
       name: "tcg_date"
       req: false
       short: "Original TCG release date (only when misc=yes)"
@@ -192,6 +194,7 @@ main: kit: entity: cardinfo: {
       type: "`$INTEGER`"
     }
     {
+      format: "uri"
       name: "ygoprodeck_url"
       req: false
       short: "URL to the card's page on YGOPRODeck"
@@ -409,8 +412,10 @@ main: kit: entity: cardinfo: {
           }
           method: "GET"
           orig: "/cardinfo.php"
-          parts: [
-            "cardinfo.php"
+          segments: [
+            {
+              lit: "cardinfo.php"
+            }
           ]
           select: {
             exist: [
