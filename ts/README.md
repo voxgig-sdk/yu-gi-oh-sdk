@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { YuGiOhSDK } from '@voxgig-sdk/yu-gi-oh'
+import { YuGiOhSDK } from '@voxgig-sdk/yu-gi-oh-sdk'
 
 const client = new YuGiOhSDK()
 ```
@@ -465,7 +465,7 @@ yu-gi-oh/
 Import the SDK from the package root:
 
 ```ts
-import { YuGiOhSDK } from '@voxgig-sdk/yu-gi-oh'
+import { YuGiOhSDK } from '@voxgig-sdk/yu-gi-oh-sdk'
 ```
 
 ### Entity state

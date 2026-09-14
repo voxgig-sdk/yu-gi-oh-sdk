@@ -1,5 +1,5 @@
 {
-  "name": "@voxgig-sdk/yu-gi-oh",
+  "name": "@voxgig-sdk/yu-gi-oh-sdk",
   "version": "0.0.1",
   "description": "Unofficial generated TypeScript SDK for the Yu-Gi-Oh! public API. Not affiliated with or endorsed by the upstream API provider.",
   "keywords": [
