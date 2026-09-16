@@ -1,12 +1,18 @@
 # YuGiOh SDK feature factory
 
 from yugioh_sdk.feature.base_feature import YuGiOhBaseFeature
+from yugioh_sdk.feature.ratelimit_feature import YuGiOhRatelimitFeature
+from yugioh_sdk.feature.retry_feature import YuGiOhRetryFeature
 from yugioh_sdk.feature.test_feature import YuGiOhTestFeature
+from yugioh_sdk.feature.timeout_feature import YuGiOhTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: YuGiOhBaseFeature(),
+    "ratelimit": lambda: YuGiOhRatelimitFeature(),
+    "retry": lambda: YuGiOhRetryFeature(),
     "test": lambda: YuGiOhTestFeature(),
+    "timeout": lambda: YuGiOhTimeoutFeature(),
 }
 
 

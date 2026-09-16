@@ -24,7 +24,71 @@
         "repr": "auto"
       },
       "contributor": {},
-      "docs": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "cardinfo": {
           "active": true,
@@ -494,6 +558,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /cardinfo.php",
+                    "json": "{\"operationId\":\"getCardInfo\",\"parameters\":[{\"description\":\"The exact name of the card. You can pass multiple pipe-separated names (e.g., 'Baby Dragon|Time Wizard')\",\"example\":\"Dark Magician\",\"in\":\"query\",\"name\":\"name\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"A fuzzy search using a string. For example 'Magician' to search all cards with 'Magician' in the name\",\"example\":\"Wizard\",\"in\":\"query\",\"name\":\"fname\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"The 8-digit passcode of the card. You can pass multiple comma-separated IDs. Cannot be used with 'name' parameter\",\"example\":\"6983839\",\"in\":\"query\",\"name\":\"id\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"The Konami ID of the card (not the passcode)\",\"in\":\"query\",\"name\":\"konami_id\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"The type of card to filter by (e.g., 'Effect Monster', 'Spell Card', 'Trap Card', 'XYZ Monster'). You can pass multiple comma-separated types\",\"example\":\"Spell Card\",\"in\":\"query\",\"name\":\"type\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by ATK value. Supports operators: lt (less than), lte (less than or equal), gt (greater than), gte (greater than or equal). Example: 'lt2500' or '2500'\",\"example\":\"2100\",\"in\":\"query\",\"name\":\"atk\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by DEF value. Supports operators: lt, lte, gt, gte. Example: 'gte2000'\",\"example\":\"2000\",\"in\":\"query\",\"name\":\"def\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by card level/RANK. Supports operators: lt, lte, gt, gte. Example: 'lte8' or '4'\",\"example\":\"4\",\"in\":\"query\",\"name\":\"level\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by card race/type (e.g., 'Spellcaster', 'Warrior', 'Insect'). For Spell/Trap cards, this is the subtype (e.g., 'Equip', 'Field', 'Counter'). You can pass multiple comma-separated races\",\"example\":\"Wyrm\",\"in\":\"query\",\"name\":\"race\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by card attribute (e.g., 'DARK', 'LIGHT', 'WATER', 'FIRE', 'EARTH', 'WIND', 'DIVINE'). You can pass multiple comma-separated attributes\",\"example\":\"WIND\",\"in\":\"query\",\"name\":\"attribute\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter cards by Link value (for Link Monsters)\",\"in\":\"query\",\"name\":\"link\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Filter cards by Link Marker values (Top, Bottom, Left, Right, Bottom-Left, Bottom-Right, Top-Left, Top-Right). You can pass multiple comma-separated values\",\"example\":\"top,bottom\",\"in\":\"query\",\"name\":\"linkmarker\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter cards by Pendulum Scale value\",\"in\":\"query\",\"name\":\"scale\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Filter cards by card set name (e.g., 'Metal Raiders', 'Soul Fusion')\",\"example\":\"Metal Raiders\",\"in\":\"query\",\"name\":\"cardset\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter cards by archetype (e.g., 'Dark Magician', 'Blue-Eyes', 'Prank-Kids')\",\"example\":\"Blue-Eyes\",\"in\":\"query\",\"name\":\"archetype\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter cards by banlist status (TCG, OCG, Goat)\",\"example\":\"tcg\",\"in\":\"query\",\"name\":\"banlist\",\"required\":false,\"schema\":{\"enum\":[\"TCG\",\"OCG\",\"Goat\"],\"type\":\"string\"}},{\"description\":\"Sort the order of cards (atk, def, name, type, level, id, new)\",\"example\":\"name\",\"in\":\"query\",\"name\":\"sort\",\"required\":false,\"schema\":{\"enum\":[\"atk\",\"def\",\"name\",\"type\",\"level\",\"id\",\"new\"],\"type\":\"string\"}},{\"description\":\"Filter by card format (tcg, goat, ocg goat, speed duel, master duel, rush duel, duel links, genesys). Using 'tcg' returns all cards with a TCG release date and excludes Speed Duel/Rush Duel cards\",\"example\":\"Speed Duel\",\"in\":\"query\",\"name\":\"format\",\"required\":false,\"schema\":{\"enum\":[\"tcg\",\"goat\",\"ocg goat\",\"speed duel\",\"master duel\",\"rush duel\",\"duel links\",\"genesys\"],\"type\":\"string\"}},{\"description\":\"Pass 'yes' to show additional response information including beta_name, views, upvotes, formats, treated_as, tcg_date, ocg_date, konami_id, md_rarity, has_effect\",\"in\":\"query\",\"name\":\"misc\",\"required\":false,\"schema\":{\"enum\":[\"yes\"],\"type\":\"string\"}},{\"description\":\"Filter to show only staple cards. Pass 'yes' to enable\",\"in\":\"query\",\"name\":\"staple\",\"required\":false,\"schema\":{\"enum\":[\"yes\"],\"type\":\"string\"}},{\"description\":\"Check if a card actually has an effect or not. Pass true/false\",\"in\":\"query\",\"name\":\"has_effect\",\"required\":false,\"schema\":{\"type\":\"boolean\"}},{\"description\":\"Filter cards released on or after this date. Format: YYYY-MM-DD. Use with 'enddate' and 'dateregion'\",\"example\":\"2000-01-01\",\"in\":\"query\",\"name\":\"startdate\",\"required\":false,\"schema\":{\"format\":\"date\",\"type\":\"string\"}},{\"description\":\"Filter cards released on or before this date. Format: YYYY-MM-DD. Use with 'startdate' and 'dateregion'\",\"example\":\"2002-08-23\",\"in\":\"query\",\"name\":\"enddate\",\"required\":false,\"schema\":{\"format\":\"date\",\"type\":\"string\"}},{\"description\":\"Specify the region for date filtering (tcg or ocg). Defaults to 'tcg'\",\"in\":\"query\",\"name\":\"dateregion\",\"required\":false,\"schema\":{\"default\":\"tcg\",\"enum\":[\"tcg\",\"ocg\"],\"type\":\"string\"}},{\"description\":\"Use TCGplayer card set data instead of internal data. This replaces card_sets information with TCGplayer data including set_edition and set_url\",\"in\":\"query\",\"name\":\"tcgplayer_data\",\"required\":false,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"data\":[{\"atk\":2100,\"attribute\":\"WIND\",\"card_images\":[{\"id\":6983839,\"image_url\":\"https://images.ygoprodeck.com/images/cards/6983839.jpg\",\"image_url_cropped\":\"https://images.ygoprodeck.com/images/cards_cropped/6983839.jpg\",\"image_url_small\":\"https://images.ygoprodeck.com/images/cards_small/6983839.jpg\"}],\"card_prices\":[{\"amazon_price\":\"0.77\",\"cardmarket_price\":\"0.42\",\"coolstuffinc_price\":\"0.99\",\"ebay_price\":\"2.99\",\"tcgplayer_price\":\"0.48\"}],\"card_sets\":[{\"set_code\":\"MACR-EN081\",\"set_name\":\"Maximum Crisis\",\"set_price\":\"4.32\",\"set_rarity\":\"Secret Rare\",\"set_rarity_code\":\"(ScR)\"}],\"def\":2000,\"desc\":\"2 Level 4 monsters\\nOnce per turn (Quick Effect): You can detach 1 material from this card, then target 1 Spell/Trap on the field; destroy it.\",\"frameType\":\"xyz\",\"id\":6983839,\"level\":4,\"name\":\"Tornado Dragon\",\"race\":\"Wyrm\",\"type\":\"XYZ Monster\"}]},\"schema\":{\"properties\":{\"data\":{\"items\":{\"description\":\"Yu-Gi-Oh! card information object. Properties vary based on card type (Monster, Spell, Trap, etc.). Null or empty values are not returned\",\"properties\":{\"archetype\":{\"description\":\"The archetype the card belongs to\",\"example\":\"Blue-Eyes\",\"type\":\"string\"},\"atk\":{\"description\":\"ATK value (Monster cards only)\",\"example\":2100,\"type\":\"integer\"},\"attribute\":{\"description\":\"Attribute of the card (Monster cards only: DARK, LIGHT, WATER, FIRE, EARTH, WIND, DIVINE)\",\"example\":\"WIND\",\"type\":\"string\"},\"banlist_info\":{\"description\":\"Banlist status information for the card\",\"properties\":{\"ban_goat\":{\"description\":\"Status on GOAT format banlist (Forbidden, Limited, Semi-Limited, or not listed)\",\"enum\":[\"Forbidden\",\"Limited\",\"Semi-Limited\"],\"type\":\"string\"},\"ban_ocg\":{\"description\":\"Status on OCG banlist (Forbidden, Limited, Semi-Limited, or not listed)\",\"enum\":[\"Forbidden\",\"Limited\",\"Semi-Limited\"],\"type\":\"string\"},\"ban_tcg\":{\"description\":\"Status on TCG banlist (Forbidden, Limited, Semi-Limited, or not listed)\",\"enum\":[\"Forbidden\",\"Limited\",\"Semi-Limited\"],\"type\":\"string\"}},\"type\":\"object\"},\"beta_name\":{\"description\":\"Old/temporary/translated name (only when misc=yes)\",\"type\":\"string\"},\"card_images\":{\"description\":\"Array of card images including alternate artworks\",\"items\":{\"description\":\"Image URLs for a card or alternate artwork\",\"properties\":{\"id\":{\"description\":\"Card ID for this specific image/artwork\",\"example\":6983839,\"type\":\"integer\"},\"image_url\":{\"description\":\"Full-size card image URL\",\"example\":\"https://images.ygoprodeck.com/images/cards/6983839.jpg\",\"format\":\"uri\",\"type\":\"string\"},\"image_url_cropped\":{\"description\":\"Cropped card artwork URL\",\"example\":\"https://images.ygoprodeck.com/images/cards_cropped/6983839.jpg\",\"format\":\"uri\",\"type\":\"string\"},\"image_url_small\":{\"description\":\"Small card image URL\",\"example\":\"https://images.ygoprodeck.com/images/cards_small/6983839.jpg\",\"format\":\"uri\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"card_prices\":{\"description\":\"Array of card prices from various vendors (lowest price across all versions)\",\"items\":{\"description\":\"Card prices from multiple vendors (lowest price across all versions)\",\"properties\":{\"amazon_price\":{\"description\":\"Price from Amazon in USD ($)\",\"example\":\"0.77\",\"type\":\"string\"},\"cardmarket_price\":{\"description\":\"Price from Cardmarket in EUR (€)\",\"example\":\"0.42\",\"type\":\"string\"},\"coolstuffinc_price\":{\"description\":\"Price from CoolStuffInc in USD ($)\",\"example\":\"0.99\",\"type\":\"string\"},\"ebay_price\":{\"description\":\"Price from eBay in USD ($)\",\"example\":\"2.99\",\"type\":\"string\"},\"tcgplayer_price\":{\"description\":\"Price from TCGplayer in USD ($)\",\"example\":\"0.48\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"card_sets\":{\"description\":\"Array of card sets this card appears in\",\"items\":{\"description\":\"Information about a card set/pack\",\"properties\":{\"set_code\":{\"description\":\"Set code for this specific printing\",\"example\":\"MACR-EN081\",\"type\":\"string\"},\"set_edition\":{\"description\":\"Edition of the set (only when using tcgplayer_data parameter)\",\"type\":\"string\"},\"set_name\":{\"description\":\"Name of the card set\",\"example\":\"Maximum Crisis\",\"type\":\"string\"},\"set_price\":{\"description\":\"Price in USD for this specific set version\",\"example\":\"4.32\",\"type\":\"string\"},\"set_rarity\":{\"description\":\"Rarity of the card in this set\",\"example\":\"Secret Rare\",\"type\":\"string\"},\"set_rarity_code\":{\"description\":\"Abbreviated rarity code\",\"example\":\"(ScR)\",\"type\":\"string\"},\"set_url\":{\"description\":\"URL to TCGplayer listing (only when using tcgplayer_data parameter)\",\"format\":\"uri\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"def\":{\"description\":\"DEF value (Monster cards only, not Link Monsters)\",\"example\":2000,\"type\":\"integer\"},\"desc\":{\"description\":\"Card description/effect text\",\"example\":\"2 Level 4 monsters\\nOnce per turn (Quick Effect): You can detach 1 material from this card, then target 1 Spell/Trap on the field; destroy it.\",\"type\":\"string\"},\"downvotes\":{\"description\":\"Number of downvotes (only when misc=yes)\",\"type\":\"integer\"},\"formats\":{\"description\":\"Available formats the card is in (only when misc=yes)\",\"items\":{\"enum\":[\"tcg\",\"ocg\",\"master duel\",\"goat\",\"ocg goat\",\"duel links\",\"rush duel\",\"speed duel\",\"genesys\"],\"type\":\"string\"},\"type\":\"array\"},\"frameType\":{\"description\":\"The backdrop frame type (normal, effect, synchro, xyz, spell, trap, link, etc.)\",\"example\":\"xyz\",\"type\":\"string\"},\"genesys_points\":{\"description\":\"Genesys format points code (only when format=genesys). Most cards are 0 unless otherwise stated\",\"type\":\"integer\"},\"has_effect\":{\"description\":\"Whether card has an actual text effect (1=true, 0=false) (only when misc=yes)\",\"enum\":[0,1],\"type\":\"integer\"},\"id\":{\"description\":\"8-digit passcode/ID of the card\",\"example\":6983839,\"type\":\"integer\"},\"konami_id\":{\"description\":\"Konami ID of the card (only when misc=yes)\",\"type\":\"integer\"},\"level\":{\"description\":\"Level or RANK of the card (Monster cards only, not Link Monsters)\",\"example\":4,\"type\":\"integer\"},\"linkmarkers\":{\"description\":\"Link Markers (Link Monsters only)\",\"items\":{\"enum\":[\"Top\",\"Bottom\",\"Left\",\"Right\",\"Bottom-Left\",\"Bottom-Right\",\"Top-Left\",\"Top-Right\"],\"type\":\"string\"},\"type\":\"array\"},\"linkval\":{\"description\":\"Link value (Link Monsters only)\",\"type\":\"integer\"},\"md_rarity\":{\"description\":\"Master Duel rarity (only when misc=yes)\",\"type\":\"string\"},\"name\":{\"description\":\"Name of the card\",\"example\":\"Tornado Dragon\",\"type\":\"string\"},\"ocg_date\":{\"description\":\"Original OCG release date (only when misc=yes)\",\"format\":\"date\",\"type\":\"string\"},\"race\":{\"description\":\"Card race/type. For monsters: Spellcaster, Warrior, Dragon, etc. For Spell/Trap: Field, Equip, Counter, etc.\",\"example\":\"Wyrm\",\"type\":\"string\"},\"scale\":{\"description\":\"Pendulum Scale value (Pendulum Monsters only)\",\"type\":\"integer\"},\"tcg_date\":{\"description\":\"Original TCG release date (only when misc=yes)\",\"format\":\"date\",\"type\":\"string\"},\"treated_as\":{\"description\":\"If the card is treated as another card (e.g., Harpie Lady 1,2,3 are treated as Harpie Lady) (only when misc=yes)\",\"type\":\"string\"},\"type\":{\"description\":\"The type of card (Normal Monster, Effect Monster, Synchro Monster, XYZ Monster, Spell Card, Trap Card, etc.)\",\"example\":\"XYZ Monster\",\"type\":\"string\"},\"upvotes\":{\"description\":\"Number of upvotes (only when misc=yes)\",\"type\":\"integer\"},\"views\":{\"description\":\"Number of times card has been viewed in database (only when misc=yes)\",\"type\":\"integer\"},\"viewsweek\":{\"description\":\"Number of times card has been viewed this week (only when misc=yes)\",\"type\":\"integer\"},\"ygoprodeck_url\":{\"description\":\"URL to the card's page on YGOPRODeck\",\"example\":\"https://ygoprodeck.com/card/tornado-dragon-6983839\",\"format\":\"uri\",\"type\":\"string\"}},\"required\":[\"id\",\"name\",\"type\",\"frameType\",\"desc\"],\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful response with card data\"},\"400\":{\"description\":\"Bad request - Invalid parameters\"},\"429\":{\"description\":\"Rate limit exceeded - Blocked for 1 hour after exceeding 20 requests per second\"},\"500\":{\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/cardinfo.php",
@@ -545,13 +615,223 @@
         }
       },
       "feature": {
+        "ratelimit": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "burst": 5,
+              "rate": 5
+            },
+            "optspec": {
+              "now": "`$FUNCTION`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "ratelimit",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Client-side rate limiting via a token bucket",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
+        "retry": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "factor": 2,
+              "maxDelay": 2000,
+              "minDelay": 50,
+              "retries": 2,
+              "statuses": [
+                408,
+                425,
+                429,
+                500,
+                502,
+                503,
+                504
+              ]
+            },
+            "optspec": {
+              "jitter": "`$BOOLEAN`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "retry",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Automatic retry of transient failures with exponential backoff",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
         "test": {
           "active": true,
           "base": "node_modules/@voxgig/sdkgen/project/.sdk",
           "config": {
             "options": {
               "active": false
-            }
+            },
+            "optspec": {
+              "entity": "`$MAP`",
+              "net": "`$MAP`"
+            },
+            "strict": false
           },
           "hook": {
             "GetData": {
@@ -642,6 +922,102 @@
           "title": "In-memory mock transport for testing without a live server",
           "transport": "base",
           "version": "0.0.1"
+        },
+        "timeout": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "ms": 30000
+            },
+            "optspec": {
+              "clearTimer": "`$FUNCTION`",
+              "setTimer": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "timeout",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Per-request timeout with transport abort",
+          "transport": "wrap",
+          "version": "0.0.1"
         }
       },
       "flow": {
@@ -693,6 +1069,48 @@
         "website": "https://ygoprodeck.com/api-guide/"
       },
       "option": {},
+      "optspec": {
+        "allow": {
+          "method": "GET,PUT,POST,PATCH,DELETE,OPTIONS",
+          "op": "create,update,load,list,remove,command,direct,graphql"
+        },
+        "apikey": "",
+        "auth": {
+          "basic": false,
+          "prefix": ""
+        },
+        "base": "http://localhost:8000",
+        "clean": {
+          "keys": "key,token,id"
+        },
+        "entity": {
+          "`$CHILD`": {
+            "`$OPEN`": true,
+            "active": false,
+            "alias": {}
+          }
+        },
+        "extend": "`$ANY`",
+        "headers": {
+          "`$CHILD`": "`$STRING`"
+        },
+        "prefix": "",
+        "secret": "",
+        "server": {
+          "`$CHILD`": ""
+        },
+        "suffix": "",
+        "system": {
+          "fetch": "`$ANY`"
+        },
+        "test": {
+          "active": false,
+          "entity": {
+            "`$OPEN`": true
+          }
+        },
+        "utility": {}
+      },
       "repo": {
         "host": "github.com",
         "path": ""
@@ -1247,6 +1665,7 @@
           },
           "package": "@voxgig/sdkgen",
           "provides": {
+            "schema": true,
             "sekreto": true
           },
           "publish": {
@@ -1288,7 +1707,7 @@
         "live": {
           "app": false,
           "base": "",
-          "strict": false
+          "strict": true
         }
       }
     }
