@@ -19,7 +19,6 @@ import type {
   CardinfoListMatch,
 } from '../YuGiOhTypes'
 
-// TODO: needs Entity superclass
 class CardinfoEntity extends YuGiOhEntityBase<Cardinfo> {
 
   constructor(client: YuGiOhSDK, entopts: any) {

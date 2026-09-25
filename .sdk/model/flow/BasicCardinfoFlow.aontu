@@ -1,0 +1,22 @@
+# BasicCardinfoFlow
+
+main: kit: flow: BasicCardinfoFlow:
+{
+  entity: "cardinfo",
+  kind: "basic",
+  name: "BasicCardinfoFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "cardinfo_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCardinfoFlow"
+}

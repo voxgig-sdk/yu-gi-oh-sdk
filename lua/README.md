@@ -43,7 +43,7 @@ local cardinfos, err = client:Cardinfo():list()
 if err then error(err) end
 
 for _, item in ipairs(cardinfos) do
-  print(item["id"], item["archetype"])
+  print(item["id"])
 end
 ```
 

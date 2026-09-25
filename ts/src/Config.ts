@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -139,171 +132,203 @@ class Config {
       "fields": [
         {
           "name": "archetype",
-          "short": "The archetype the card belongs to",
-          "type": "`$STRING`"
+          "title": "Archetype",
+          "type": "`$STRING`",
+          "short": "The archetype the card belongs to"
         },
         {
           "name": "atk",
-          "short": "ATK value (Monster cards only)",
-          "type": "`$INTEGER`"
+          "title": "Atk",
+          "type": "`$INTEGER`",
+          "short": "ATK value (Monster cards only)"
         },
         {
           "name": "attribute",
-          "short": "Attribute of the card (Monster cards only: DARK, LIGHT, WATER, FIRE, EARTH, WIND, DIVINE)",
-          "type": "`$STRING`"
+          "title": "Attribute",
+          "type": "`$STRING`",
+          "short": "Attribute of the card (Monster cards only: DARK, LIGHT, WATER, FIRE, EARTH, WIND, DIVINE)"
         },
         {
           "name": "banlist_info",
-          "short": "Banlist status information for the card",
-          "type": "`$OBJECT`"
+          "title": "Banlist Info",
+          "type": "`$OBJECT`",
+          "short": "Banlist status information for the card"
         },
         {
           "name": "beta_name",
-          "short": "Old/temporary/translated name (only when misc=yes)",
-          "type": "`$STRING`"
+          "title": "Beta Name",
+          "type": "`$STRING`",
+          "short": "Old/temporary/translated name (only when misc=yes)"
         },
         {
           "name": "card_images",
-          "short": "Array of card images including alternate artworks",
-          "type": "`$ARRAY`"
+          "title": "Card Images",
+          "type": "`$ARRAY`",
+          "short": "Array of card images including alternate artworks"
         },
         {
           "name": "card_prices",
-          "short": "Array of card prices from various vendors (lowest price across all versions)",
-          "type": "`$ARRAY`"
+          "title": "Card Prices",
+          "type": "`$ARRAY`",
+          "short": "Array of card prices from various vendors (lowest price across all versions)"
         },
         {
           "name": "card_sets",
-          "short": "Array of card sets this card appears in",
-          "type": "`$ARRAY`"
+          "title": "Card Sets",
+          "type": "`$ARRAY`",
+          "short": "Array of card sets this card appears in"
         },
         {
           "name": "def",
-          "short": "DEF value (Monster cards only, not Link Monsters)",
-          "type": "`$INTEGER`"
+          "title": "Def",
+          "type": "`$INTEGER`",
+          "short": "DEF value (Monster cards only, not Link Monsters)"
         },
         {
           "name": "desc",
+          "title": "Desc",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Card description/effect text",
-          "type": "`$STRING`"
+          "short": "Card description/effect text"
         },
         {
           "name": "downvotes",
-          "short": "Number of downvotes (only when misc=yes)",
-          "type": "`$INTEGER`"
+          "title": "Downvotes",
+          "type": "`$INTEGER`",
+          "short": "Number of downvotes (only when misc=yes)"
         },
         {
           "name": "formats",
-          "short": "Available formats the card is in (only when misc=yes)",
-          "type": "`$ARRAY`"
+          "title": "Formats",
+          "type": "`$ARRAY`",
+          "short": "Available formats the card is in (only when misc=yes)"
         },
         {
           "name": "frameType",
+          "title": "Frame Type",
+          "type": "`$STRING`",
           "req": true,
-          "short": "The backdrop frame type (normal, effect, synchro, xyz, spell, trap, link, etc.)",
-          "type": "`$STRING`"
+          "short": "The backdrop frame type (normal, effect, synchro, xyz, spell, trap, link, etc.)"
         },
         {
           "name": "genesys_points",
-          "short": "Genesys format points code (only when format=genesys).",
-          "type": "`$INTEGER`"
+          "title": "Genesys Points",
+          "type": "`$INTEGER`",
+          "short": "Genesys format points code (only when format=genesys)."
         },
         {
           "name": "has_effect",
-          "short": "Whether card has an actual text effect (1=true, 0=false) (only when misc=yes)",
-          "type": "`$INTEGER`"
+          "title": "Has Effect",
+          "type": "`$INTEGER`",
+          "short": "Whether card has an actual text effect (1=true, 0=false) (only when misc=yes)"
         },
         {
           "name": "id",
+          "title": "Id",
+          "type": "`$INTEGER`",
           "req": true,
-          "short": "8-digit passcode/ID of the card",
-          "type": "`$INTEGER`"
+          "short": "8-digit passcode/ID of the card"
         },
         {
           "name": "konami_id",
-          "short": "Konami ID of the card (only when misc=yes)",
-          "type": "`$INTEGER`"
+          "title": "Konami Id",
+          "type": "`$INTEGER`",
+          "short": "Konami ID of the card (only when misc=yes)"
         },
         {
           "name": "level",
-          "short": "Level or RANK of the card (Monster cards only, not Link Monsters)",
-          "type": "`$INTEGER`"
+          "title": "Level",
+          "type": "`$INTEGER`",
+          "short": "Level or RANK of the card (Monster cards only, not Link Monsters)"
         },
         {
           "name": "linkmarkers",
-          "short": "Link Markers (Link Monsters only)",
-          "type": "`$ARRAY`"
+          "title": "Linkmarkers",
+          "type": "`$ARRAY`",
+          "short": "Link Markers (Link Monsters only)"
         },
         {
           "name": "linkval",
-          "short": "Link value (Link Monsters only)",
-          "type": "`$INTEGER`"
+          "title": "Linkval",
+          "type": "`$INTEGER`",
+          "short": "Link value (Link Monsters only)"
         },
         {
           "name": "md_rarity",
-          "short": "Master Duel rarity (only when misc=yes)",
-          "type": "`$STRING`"
+          "title": "Md Rarity",
+          "type": "`$STRING`",
+          "short": "Master Duel rarity (only when misc=yes)"
         },
         {
           "name": "name",
+          "title": "Name",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Name of the card",
-          "type": "`$STRING`"
+          "short": "Name of the card"
         },
         {
-          "format": "date",
           "name": "ocg_date",
+          "title": "Ocg Date",
+          "type": "`$STRING`",
           "short": "Original OCG release date (only when misc=yes)",
-          "type": "`$STRING`"
+          "format": "date"
         },
         {
           "name": "race",
-          "short": "Card race/type.",
-          "type": "`$STRING`"
+          "title": "Race",
+          "type": "`$STRING`",
+          "short": "Card race/type."
         },
         {
           "name": "scale",
-          "short": "Pendulum Scale value (Pendulum Monsters only)",
-          "type": "`$INTEGER`"
+          "title": "Scale",
+          "type": "`$INTEGER`",
+          "short": "Pendulum Scale value (Pendulum Monsters only)"
         },
         {
-          "format": "date",
           "name": "tcg_date",
+          "title": "Tcg Date",
+          "type": "`$STRING`",
           "short": "Original TCG release date (only when misc=yes)",
-          "type": "`$STRING`"
+          "format": "date"
         },
         {
           "name": "treated_as",
-          "short": "If the card is treated as another card (e.g., Harpie Lady 1,2,3 are treated as Harpie Lady) (only when misc=yes)",
-          "type": "`$STRING`"
+          "title": "Treated As",
+          "type": "`$STRING`",
+          "short": "If the card is treated as another card (e.g., Harpie Lady 1,2,3 are treated as Harpie Lady) (only when misc=yes)"
         },
         {
           "name": "type",
+          "title": "Type",
+          "type": "`$STRING`",
           "req": true,
-          "short": "The type of card (Normal Monster, Effect Monster, Synchro Monster, XYZ Monster, Spell Card, Trap Card, etc.)",
-          "type": "`$STRING`"
+          "short": "The type of card (Normal Monster, Effect Monster, Synchro Monster, XYZ Monster, Spell Card, Trap Card, etc.)"
         },
         {
           "name": "upvotes",
-          "short": "Number of upvotes (only when misc=yes)",
-          "type": "`$INTEGER`"
+          "title": "Upvotes",
+          "type": "`$INTEGER`",
+          "short": "Number of upvotes (only when misc=yes)"
         },
         {
           "name": "views",
-          "short": "Number of times card has been viewed in database (only when misc=yes)",
-          "type": "`$INTEGER`"
+          "title": "Views",
+          "type": "`$INTEGER`",
+          "short": "Number of times card has been viewed in database (only when misc=yes)"
         },
         {
           "name": "viewsweek",
-          "short": "Number of times card has been viewed this week (only when misc=yes)",
-          "type": "`$INTEGER`"
+          "title": "Viewsweek",
+          "type": "`$INTEGER`",
+          "short": "Number of times card has been viewed this week (only when misc=yes)"
         },
         {
-          "format": "uri",
           "name": "ygoprodeck_url",
+          "title": "Ygoprodeck Url",
+          "type": "`$STRING`",
           "short": "URL to the card's page on YGOPRODeck",
-          "type": "`$STRING`"
+          "format": "uri"
         }
       ],
       "id": {
@@ -317,178 +342,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "example": "Blue-Eyes",
-                    "kind": "query",
-                    "name": "archetype",
-                    "orig": "archetype",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": "2100",
-                    "kind": "query",
-                    "name": "atk",
-                    "orig": "atk",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": "WIND",
-                    "kind": "query",
-                    "name": "attribute",
-                    "orig": "attribute",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": "tcg",
-                    "kind": "query",
-                    "name": "banlist",
-                    "orig": "banlist",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": "Metal Raiders",
-                    "kind": "query",
-                    "name": "cardset",
-                    "orig": "cardset",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": "tcg",
-                    "kind": "query",
-                    "name": "dateregion",
-                    "orig": "dateregion",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": "2000",
-                    "kind": "query",
-                    "name": "def",
-                    "orig": "def",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": "2002-08-23",
-                    "kind": "query",
-                    "name": "enddate",
-                    "orig": "enddate",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": "Wizard",
-                    "kind": "query",
-                    "name": "fname",
-                    "orig": "fname",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": "Speed Duel",
-                    "kind": "query",
-                    "name": "format",
-                    "orig": "format",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "has_effect",
-                    "orig": "has_effect",
-                    "type": "`$BOOLEAN`"
-                  },
-                  {
-                    "example": "6983839",
-                    "kind": "query",
-                    "name": "id",
-                    "orig": "id",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "konami_id",
-                    "orig": "konami_id",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "example": "4",
-                    "kind": "query",
-                    "name": "level",
-                    "orig": "level",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "link",
-                    "orig": "link",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "example": "top,bottom",
-                    "kind": "query",
-                    "name": "linkmarker",
-                    "orig": "linkmarker",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "misc",
-                    "orig": "misc",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": "Dark Magician",
-                    "kind": "query",
-                    "name": "name",
-                    "orig": "name",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": "Wyrm",
-                    "kind": "query",
-                    "name": "race",
-                    "orig": "race",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "scale",
-                    "orig": "scale",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "example": "name",
-                    "kind": "query",
-                    "name": "sort",
-                    "orig": "sort",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "staple",
-                    "orig": "staple",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": "2000-01-01",
-                    "kind": "query",
-                    "name": "startdate",
-                    "orig": "startdate",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "tcgplayer_data",
-                    "orig": "tcgplayer_data",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": "Spell Card",
-                    "kind": "query",
-                    "name": "type",
-                    "orig": "type",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/cardinfo.php",
@@ -497,6 +350,186 @@ class Config {
                   "lit": "cardinfo.php"
                 }
               ],
+              "parts": [
+                "cardinfo.php"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body.data`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "archetype",
+                    "orig": "archetype",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "Blue-Eyes"
+                  },
+                  {
+                    "name": "atk",
+                    "orig": "atk",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "2100"
+                  },
+                  {
+                    "name": "attribute",
+                    "orig": "attribute",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "WIND"
+                  },
+                  {
+                    "name": "banlist",
+                    "orig": "banlist",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "tcg"
+                  },
+                  {
+                    "name": "cardset",
+                    "orig": "cardset",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "Metal Raiders"
+                  },
+                  {
+                    "name": "dateregion",
+                    "orig": "dateregion",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "tcg"
+                  },
+                  {
+                    "name": "def",
+                    "orig": "def",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "2000"
+                  },
+                  {
+                    "name": "enddate",
+                    "orig": "enddate",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "2002-08-23"
+                  },
+                  {
+                    "name": "fname",
+                    "orig": "fname",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "Wizard"
+                  },
+                  {
+                    "name": "format",
+                    "orig": "format",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "Speed Duel"
+                  },
+                  {
+                    "name": "has_effect",
+                    "orig": "has_effect",
+                    "type": "`$BOOLEAN`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "id",
+                    "orig": "id",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "6983839"
+                  },
+                  {
+                    "name": "konami_id",
+                    "orig": "konami_id",
+                    "type": "`$INTEGER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "level",
+                    "orig": "level",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "4"
+                  },
+                  {
+                    "name": "link",
+                    "orig": "link",
+                    "type": "`$INTEGER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "linkmarker",
+                    "orig": "linkmarker",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "top,bottom"
+                  },
+                  {
+                    "name": "misc",
+                    "orig": "misc",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "name",
+                    "orig": "name",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "Dark Magician"
+                  },
+                  {
+                    "name": "race",
+                    "orig": "race",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "Wyrm"
+                  },
+                  {
+                    "name": "scale",
+                    "orig": "scale",
+                    "type": "`$INTEGER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "sort",
+                    "orig": "sort",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "name"
+                  },
+                  {
+                    "name": "staple",
+                    "orig": "staple",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "startdate",
+                    "orig": "startdate",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "2000-01-01"
+                  },
+                  {
+                    "name": "tcgplayer_data",
+                    "orig": "tcgplayer_data",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "type",
+                    "orig": "type",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "Spell Card"
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "archetype",
@@ -525,14 +558,7 @@ class Config {
                   "tcgplayer_data",
                   "type"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body.data`"
-              },
-              "parts": [
-                "cardinfo.php"
-              ]
+              }
             }
           ]
         }

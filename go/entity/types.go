@@ -1,7 +1,7 @@
 // Typed models for the YuGiOh SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,38 +14,6 @@ import (
 
 // Cardinfo is the typed data model for the cardinfo entity.
 type Cardinfo struct {
-	Archetype *string `json:"archetype,omitempty"`
-	Atk *int `json:"atk,omitempty"`
-	Attribute *string `json:"attribute,omitempty"`
-	BanlistInfo *map[string]any `json:"banlist_info,omitempty"`
-	BetaName *string `json:"beta_name,omitempty"`
-	CardImages *[]any `json:"card_images,omitempty"`
-	CardPrices *[]any `json:"card_prices,omitempty"`
-	CardSets *[]any `json:"card_sets,omitempty"`
-	Def *int `json:"def,omitempty"`
-	Desc string `json:"desc"`
-	Downvotes *int `json:"downvotes,omitempty"`
-	Formats *[]any `json:"formats,omitempty"`
-	FrameType string `json:"frameType"`
-	GenesysPoints *int `json:"genesys_points,omitempty"`
-	HasEffect *int `json:"has_effect,omitempty"`
-	Id int `json:"id"`
-	KonamiId *int `json:"konami_id,omitempty"`
-	Level *int `json:"level,omitempty"`
-	Linkmarkers *[]any `json:"linkmarkers,omitempty"`
-	Linkval *int `json:"linkval,omitempty"`
-	MdRarity *string `json:"md_rarity,omitempty"`
-	Name string `json:"name"`
-	OcgDate *string `json:"ocg_date,omitempty"`
-	Race *string `json:"race,omitempty"`
-	Scale *int `json:"scale,omitempty"`
-	TcgDate *string `json:"tcg_date,omitempty"`
-	TreatedAs *string `json:"treated_as,omitempty"`
-	Type string `json:"type"`
-	Upvotes *int `json:"upvotes,omitempty"`
-	Views *int `json:"views,omitempty"`
-	Viewsweek *int `json:"viewsweek,omitempty"`
-	YgoprodeckUrl *string `json:"ygoprodeck_url,omitempty"`
 }
 
 // CardinfoListMatch is the typed request payload for Cardinfo.ListTyped.

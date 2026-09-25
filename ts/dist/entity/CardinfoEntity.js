@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CardinfoEntity = void 0;
 const YuGiOhEntityBase_1 = require("../YuGiOhEntityBase");
-// TODO: needs Entity superclass
 class CardinfoEntity extends YuGiOhEntityBase_1.YuGiOhEntityBase {
     constructor(client, entopts) {
         super(client, entopts);

@@ -1,0 +1,497 @@
+# Entity: cardinfo
+
+main: kit: entity: cardinfo: {
+
+  alias: field: {}
+
+  fields: {
+    archetype: {
+      h: "Archetype"
+      n: "archetype"
+      r: false
+      sh: "The archetype the card belongs to"
+      t: "`$STRING`"
+    }
+    atk: {
+      h: "Atk"
+      n: "atk"
+      r: false
+      sh: "ATK value (Monster cards only)"
+      t: "`$INTEGER`"
+    }
+    attribute: {
+      h: "Attribute"
+      n: "attribute"
+      r: false
+      sh: "Attribute of the card (Monster cards only: DARK, LIGHT, WATER, FIRE, EARTH, WIND, DIVINE)"
+      t: "`$STRING`"
+    }
+    banlist_info: {
+      h: "Banlist Info"
+      n: "banlist_info"
+      r: false
+      sh: "Banlist status information for the card"
+      t: "`$OBJECT`"
+    }
+    beta_name: {
+      h: "Beta Name"
+      n: "beta_name"
+      r: false
+      sh: "Old/temporary/translated name (only when misc=yes)"
+      t: "`$STRING`"
+    }
+    card_images: {
+      h: "Card Images"
+      n: "card_images"
+      r: false
+      sh: "Array of card images including alternate artworks"
+      t: "`$ARRAY`"
+    }
+    card_prices: {
+      h: "Card Prices"
+      n: "card_prices"
+      r: false
+      sh: "Array of card prices from various vendors (lowest price across all versions)"
+      t: "`$ARRAY`"
+    }
+    card_sets: {
+      h: "Card Sets"
+      n: "card_sets"
+      r: false
+      sh: "Array of card sets this card appears in"
+      t: "`$ARRAY`"
+    }
+    def: {
+      h: "Def"
+      n: "def"
+      r: false
+      sh: "DEF value (Monster cards only, not Link Monsters)"
+      t: "`$INTEGER`"
+    }
+    desc: {
+      h: "Desc"
+      n: "desc"
+      r: true
+      sh: "Card description/effect text"
+      t: "`$STRING`"
+    }
+    downvotes: {
+      h: "Downvotes"
+      n: "downvotes"
+      r: false
+      sh: "Number of downvotes (only when misc=yes)"
+      t: "`$INTEGER`"
+    }
+    formats: {
+      h: "Formats"
+      n: "formats"
+      r: false
+      sh: "Available formats the card is in (only when misc=yes)"
+      t: "`$ARRAY`"
+    }
+    frameType: {
+      h: "Frame Type"
+      n: "frameType"
+      r: true
+      sh: "The backdrop frame type (normal, effect, synchro, xyz, spell, trap, link, etc.)"
+      t: "`$STRING`"
+    }
+    genesys_points: {
+      h: "Genesys Points"
+      n: "genesys_points"
+      r: false
+      sh: "Genesys format points code (only when format=genesys)."
+      t: "`$INTEGER`"
+    }
+    has_effect: {
+      h: "Has Effect"
+      n: "has_effect"
+      r: false
+      sh: "Whether card has an actual text effect (1=true, 0=false) (only when misc=yes)"
+      t: "`$INTEGER`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "8-digit passcode/ID of the card"
+      t: "`$INTEGER`"
+    }
+    konami_id: {
+      h: "Konami Id"
+      n: "konami_id"
+      r: false
+      sh: "Konami ID of the card (only when misc=yes)"
+      t: "`$INTEGER`"
+    }
+    level: {
+      h: "Level"
+      n: "level"
+      r: false
+      sh: "Level or RANK of the card (Monster cards only, not Link Monsters)"
+      t: "`$INTEGER`"
+    }
+    linkmarkers: {
+      h: "Linkmarkers"
+      n: "linkmarkers"
+      r: false
+      sh: "Link Markers (Link Monsters only)"
+      t: "`$ARRAY`"
+    }
+    linkval: {
+      h: "Linkval"
+      n: "linkval"
+      r: false
+      sh: "Link value (Link Monsters only)"
+      t: "`$INTEGER`"
+    }
+    md_rarity: {
+      h: "Md Rarity"
+      n: "md_rarity"
+      r: false
+      sh: "Master Duel rarity (only when misc=yes)"
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      sh: "Name of the card"
+      t: "`$STRING`"
+    }
+    ocg_date: {
+      fo: "date"
+      h: "Ocg Date"
+      n: "ocg_date"
+      r: false
+      sh: "Original OCG release date (only when misc=yes)"
+      t: "`$STRING`"
+    }
+    race: {
+      h: "Race"
+      n: "race"
+      r: false
+      sh: "Card race/type."
+      t: "`$STRING`"
+    }
+    scale: {
+      h: "Scale"
+      n: "scale"
+      r: false
+      sh: "Pendulum Scale value (Pendulum Monsters only)"
+      t: "`$INTEGER`"
+    }
+    tcg_date: {
+      fo: "date"
+      h: "Tcg Date"
+      n: "tcg_date"
+      r: false
+      sh: "Original TCG release date (only when misc=yes)"
+      t: "`$STRING`"
+    }
+    treated_as: {
+      h: "Treated As"
+      n: "treated_as"
+      r: false
+      sh: "If the card is treated as another card (e.g., Harpie Lady 1,2,3 are treated as Harpie Lady) (only when misc=yes)"
+      t: "`$STRING`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: true
+      sh: "The type of card (Normal Monster, Effect Monster, Synchro Monster, XYZ Monster, Spell Card, Trap Card, etc.)"
+      t: "`$STRING`"
+    }
+    upvotes: {
+      h: "Upvotes"
+      n: "upvotes"
+      r: false
+      sh: "Number of upvotes (only when misc=yes)"
+      t: "`$INTEGER`"
+    }
+    views: {
+      h: "Views"
+      n: "views"
+      r: false
+      sh: "Number of times card has been viewed in database (only when misc=yes)"
+      t: "`$INTEGER`"
+    }
+    viewsweek: {
+      h: "Viewsweek"
+      n: "viewsweek"
+      r: false
+      sh: "Number of times card has been viewed this week (only when misc=yes)"
+      t: "`$INTEGER`"
+    }
+    ygoprodeck_url: {
+      fo: "uri"
+      h: "Ygoprodeck Url"
+      n: "ygoprodeck_url"
+      r: false
+      sh: "URL to the card's page on YGOPRODeck"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "cardinfo"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /cardinfo.php"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "Blue-Eyes"
+                k: "query"
+                n: "archetype"
+                or: "archetype"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "2100"
+                k: "query"
+                n: "atk"
+                or: "atk"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "WIND"
+                k: "query"
+                n: "attribute"
+                or: "attribute"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "tcg"
+                k: "query"
+                n: "banlist"
+                or: "banlist"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "Metal Raiders"
+                k: "query"
+                n: "cardset"
+                or: "cardset"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "tcg"
+                k: "query"
+                n: "dateregion"
+                or: "dateregion"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "2000"
+                k: "query"
+                n: "def"
+                or: "def"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "2002-08-23"
+                k: "query"
+                n: "enddate"
+                or: "enddate"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "Wizard"
+                k: "query"
+                n: "fname"
+                or: "fname"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "Speed Duel"
+                k: "query"
+                n: "format"
+                or: "format"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "has_effect"
+                or: "has_effect"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: "6983839"
+                k: "query"
+                n: "id"
+                or: "id"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "konami_id"
+                or: "konami_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "4"
+                k: "query"
+                n: "level"
+                or: "level"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "link"
+                or: "link"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "top,bottom"
+                k: "query"
+                n: "linkmarker"
+                or: "linkmarker"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "misc"
+                or: "misc"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "Dark Magician"
+                k: "query"
+                n: "name"
+                or: "name"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "Wyrm"
+                k: "query"
+                n: "race"
+                or: "race"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "scale"
+                or: "scale"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "name"
+                k: "query"
+                n: "sort"
+                or: "sort"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "staple"
+                or: "staple"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "2000-01-01"
+                k: "query"
+                n: "startdate"
+                or: "startdate"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "tcgplayer_data"
+                or: "tcgplayer_data"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "Spell Card"
+                k: "query"
+                n: "type"
+                or: "type"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/cardinfo.php"
+          q: {
+            exist: [
+              "archetype"
+              "atk"
+              "attribute"
+              "banlist"
+              "cardset"
+              "dateregion"
+              "def"
+              "enddate"
+              "fname"
+              "format"
+              "has_effect"
+              "id"
+              "konami_id"
+              "level"
+              "link"
+              "linkmarker"
+              "misc"
+              "name"
+              "race"
+              "scale"
+              "sort"
+              "staple"
+              "startdate"
+              "tcgplayer_data"
+              "type"
+            ]
+          }
+          s: [
+            {
+              lit: "cardinfo.php"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
